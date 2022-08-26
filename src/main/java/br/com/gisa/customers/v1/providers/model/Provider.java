@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.providers.model;
 
+import br.com.gisa.customers.v1.constants.Status;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -28,6 +29,10 @@ public class Provider { // (prestador)
     @Column(name = "registration", nullable = false, length = 20)
     private String registration;
 
+    @Column(name = "status", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @OneToOne(mappedBy = "provider", cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private Occupational occupational;
@@ -38,7 +43,7 @@ public class Provider { // (prestador)
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     @Column(name = "user", nullable = false, length = 50)
     private String user="SYSTEM";

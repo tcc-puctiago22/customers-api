@@ -18,6 +18,4 @@ public class ProviderRequest extends BasicFilter {
     @FilterAttribute(name = "registration")
     private String registration;
 
-    private Pageable pageable;
-
 }

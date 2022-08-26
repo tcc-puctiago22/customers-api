@@ -45,7 +45,7 @@ public class Occupational {
 
     @CreatedDate
     @Column(name = "create_at")
-    private LocalDateTime createDate;
+    private LocalDateTime createdDate;
 
     @Column(name = "user", nullable = false, length = 50)
     private String user="SYSTEM";

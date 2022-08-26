@@ -24,8 +24,7 @@ public class ProvidersController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PaginationResponse<ProviderDTO> getOffer(@RequestAttribute String applicationUuid,
-                                                    @Valid ProviderRequest request) {
+    public PaginationResponse<ProviderDTO> getProviders(@Valid ProviderRequest request) {
         log.info("GET api/v1/providers:: {}", request);
 
         Page<ProviderDTO> response = providersService.findAll(request);

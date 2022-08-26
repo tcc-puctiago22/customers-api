@@ -77,7 +77,7 @@ public class Address {
     @Audited(withModifiedFlag = true)
     @Column(name = "createdat")
     @CreationTimestamp
-    private LocalDateTime createdAt;
+    private LocalDateTime createdDate;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
