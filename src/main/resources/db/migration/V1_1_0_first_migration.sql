@@ -1,5 +1,5 @@
-DROP TABLE IF EXISTS `occupational`;
 DROP TABLE IF EXISTS `provider`;
+DROP TABLE IF EXISTS `occupational`;
 DROP TABLE IF EXISTS `address`;
 DROP TABLE IF EXISTS `phone`;
 DROP TABLE IF EXISTS `email`;
@@ -12,7 +12,7 @@ CREATE TABLE `customer` (
     `status` varchar(30) NOT NULL,
     `updated_at` timestamp,
     `create_at` timestamp,
-    `user_` varchar(50) NOT NULL,
+    `user` varchar(50) DEFAULT 'SYSTEM' NOT NULL,
      PRIMARY KEY (`id`)
 );
 
@@ -27,9 +27,9 @@ CREATE TABLE `address` (
   `country_desc` varchar(255) NOT NULL,
   `uf` char(2) NOT NULL,
   `city` varchar(100) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` datetime DEFAULT NULL,
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   `user` varchar(50) DEFAULT 'SYSTEM' NOT NULL,
   `customer_id` bigint(20) NOT NULL,
    PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
@@ -43,8 +43,9 @@ CREATE TABLE `phone` (
   `phone_number` varchar(11) NOT NULL,
   `type` varchar(100) DEFAULT NULL,
   `customer_id` bigint(20) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user` varchar(50) DEFAULT 'SYSTEM',
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `phone_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
@@ -55,34 +56,48 @@ CREATE TABLE `email` (
   `email` varchar(14) NOT NULL,
   `type` varchar(100) DEFAULT NULL,
   `customer_id` bigint(20) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user` varchar(50) DEFAULT 'SYSTEM',
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `email_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-);
-
-CREATE TABLE IF NOT EXISTS `provider` (
-    `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `uuid` varchar(36) NOT NULL,
-    `registration` varchar(100),
-    `status` varchar(30),
-    `updated_at` timestamp,
-    `create_at` timestamp,
-    `user` varchar(50),
-    `customer_id` bigint(20) NOT NULL,
-   KEY `customer_id` (`customer_id`),
-  CONSTRAINT `provider_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
 );
 
 CREATE TABLE `occupational` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `description` varchar(200) NOT NULL,
   `code` varchar(50) DEFAULT NULL,
-  `provider_id` bigint(20) NOT NULL,
-  `createdAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `provider_id` (`provider_id`),
-  CONSTRAINT `occupational_ibfk_1` FOREIGN KEY (`provider_id`) REFERENCES `provider` (`id`)
+  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user` varchar(50) DEFAULT 'SYSTEM',
+  PRIMARY KEY (`id`)
 );
+
+
+CREATE TABLE IF NOT EXISTS `provider` (
+    `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `uuid` varchar(36) NOT NULL,
+    `registration` varchar(100),
+    `status` varchar(30),
+	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+   `user` varchar(50) DEFAULT 'SYSTEM',
+    `customer_id` bigint(20) NOT NULL,
+    KEY `customer_id` (`customer_id`),
+    `occupational_id` bigint(20) NOT NULL,
+    KEY `occupational_id` (`occupational_id`),
+    CONSTRAINT `provider_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
+    CONSTRAINT `occupational_ibfk_1` FOREIGN KEY (`occupational_id`) REFERENCES `occupational` (`id`)
+);
+
+
+INSERT INTO occupational (id, code, description, create_at , user)
+VALUES
+ (1,'M01', 'Médico', '2022-08-26 00:00:00', 'tiagobrito'),
+ (2,'E02', 'Enfermeiro', '2022-08-26 00:00:00', 'tiagobrito'),
+ (3,'F03', 'Farmacêutico', '2022-08-26 00:00:00', 'tiagobrito'),
+ (4,'F04', 'Fisioterapeuta', '2022-08-26 00:00:00', 'tiagobrito'),
+ (5,'F05', 'Fonoaudiólogo', '2022-08-26 00:00:00', 'tiagobrito'),
+ (4,'T04', 'Tecnólogo em sistemas biomédicos', '2022-08-26 00:00:00', 'tiagobrito'),
+ (6,'T04', 'Tecnólogo em radiologia.', '2022-08-26 00:00:00', 'tiagobrito');
