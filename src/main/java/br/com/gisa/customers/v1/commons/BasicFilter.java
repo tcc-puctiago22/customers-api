@@ -33,7 +33,7 @@ public abstract class BasicFilter {
     Integer limit;
 
     @NotEmpty
-    Set<String> sortBy;
+    String sortBy;
 
     @NotNull
     Sort.Direction orderBy;
@@ -41,12 +41,12 @@ public abstract class BasicFilter {
     protected BasicFilter() {
         offset = 0;
         limit = 5;
-        sortBy = Set.of("createdDate");
+        sortBy = "createdDate";
         orderBy = Sort.Direction.DESC;
     }
 
     public PageRequest getPageable() {
-        return PageRequest.of(offset, limit, Sort.by(orderBy, sortBy.toArray(new String[0])));
+        return PageRequest.of(offset, limit, Sort.by(orderBy, sortBy));
     }
 
     /**

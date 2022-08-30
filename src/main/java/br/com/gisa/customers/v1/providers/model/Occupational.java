@@ -2,6 +2,7 @@ package br.com.gisa.customers.v1.providers.model;
 
 
 import br.com.gisa.customers.v1.constants.Status;
+import br.com.gisa.customers.v1.model.basic.BasicModel;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity(name = "occupational")
-public class Occupational {
+public class Occupational extends BasicModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,24 +31,9 @@ public class Occupational {
     @Column(name = "code", nullable = false, length = 15)
     private String code;
 
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "provider_id", referencedColumnName = "id")
     @JsonBackReference
     private Provider provider;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updateDate;
-
-    @CreatedDate
-    @Column(name = "create_at")
-    private LocalDateTime createdDate;
-
-    @Column(name = "user", nullable = false, length = 50)
-    private String user="SYSTEM";
 
 }

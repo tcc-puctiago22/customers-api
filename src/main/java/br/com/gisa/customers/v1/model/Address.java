@@ -1,6 +1,8 @@
 package br.com.gisa.customers.v1.model;
 
+import br.com.gisa.customers.v1.constants.Status;
 import br.com.gisa.customers.v1.constants.UF;
+import br.com.gisa.customers.v1.model.basic.BasicModel;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
@@ -15,7 +17,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity(name = "address")
-public class Address {
+public class Address extends BasicModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,11 +50,7 @@ public class Address {
 
     @Audited(withModifiedFlag = true)
     @Column(name = "country", length = 100)
-    private String country;
-
-    @Audited(withModifiedFlag = true)
-    @Column(name = "country_desc", length = 255) // ????
-    private String countryDesc = "BRASIL";
+    private String country = "BRASIL";
 
     @NotNull
     @Column(name = "uf", nullable = false)
@@ -61,23 +59,8 @@ public class Address {
 
     @NotNull
     @Audited(withModifiedFlag = true)
-    @Column(name = "uf_desc", length = 100)
-    private String ufDesc;
-
-    @NotNull
-    @Audited(withModifiedFlag = true)
     @Column(name = "city", length = 100)
     private String city;
-
-    @Audited(withModifiedFlag = true)
-    @UpdateTimestamp
-    @Column(name = "updatedat")
-    private LocalDateTime updatedAt;
-
-    @Audited(withModifiedFlag = true)
-    @Column(name = "createdat")
-    @CreationTimestamp
-    private LocalDateTime createdDate;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")

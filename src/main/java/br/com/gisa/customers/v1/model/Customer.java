@@ -1,6 +1,7 @@
 package br.com.gisa.customers.v1.model;
 
 import br.com.gisa.customers.v1.constants.Status;
+import br.com.gisa.customers.v1.model.basic.BasicModel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity(name = "customer")
-public class Customer {
+public class Customer extends BasicModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,20 +26,5 @@ public class Customer {
 
     @Column(name = "given_name", nullable = false, length = 100)
     private String givenName;
-
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updateDate;
-
-    @CreatedDate
-    @Column(name = "create_at")
-    private LocalDateTime createdDate;
-
-    @Column(name = "user", nullable = false, length = 50)
-    private String user="SYSTEM";
 
 }

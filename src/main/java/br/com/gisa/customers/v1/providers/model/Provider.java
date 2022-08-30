@@ -1,14 +1,16 @@
 package br.com.gisa.customers.v1.providers.model;
 
 import br.com.gisa.customers.v1.constants.Status;
+import br.com.gisa.customers.v1.model.basic.BasicModel;
+import br.com.gisa.customers.v1.partners.model.Partner;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
@@ -17,7 +19,7 @@ import java.time.LocalDateTime;
 @Builder
 @ToString
 @Entity(name = "provider")
-public class Provider { // (prestador)
+public class Provider extends BasicModel { // (prestador)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -29,23 +31,15 @@ public class Provider { // (prestador)
     @Column(name = "registration", nullable = false, length = 20)
     private String registration;
 
-    @Column(name = "status", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
-
     @OneToOne(mappedBy = "provider", cascade = CascadeType.PERSIST)
     @JsonManagedReference
     private Occupational occupational;
 
-    @UpdateTimestamp
-    @Column(name = "updated_at")
-    private LocalDateTime updateDate;
-
-    @CreatedDate
-    @Column(name = "create_at")
-    private LocalDateTime createdDate;
-
-    @Column(name = "user", nullable = false, length = 50)
-    private String user="SYSTEM";
-
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Provider_partner",
+            joinColumns = { @JoinColumn(name = "provider_id") },
+            inverseJoinColumns = { @JoinColumn(name = "partner_id") }
+    )
+    Set<Partner> projects = new HashSet<>();
 }
