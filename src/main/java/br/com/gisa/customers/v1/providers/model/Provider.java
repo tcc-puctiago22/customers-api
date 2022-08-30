@@ -41,5 +41,5 @@ public class Provider extends BasicModel { // (prestador)
             joinColumns = { @JoinColumn(name = "provider_id") },
             inverseJoinColumns = { @JoinColumn(name = "partner_id") }
     )
-    Set<Partner> projects = new HashSet<>();
+    Set<Partner> listPartners = new HashSet<>();
 }

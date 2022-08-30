@@ -26,6 +26,6 @@ public class Partner extends BasicModel {
     @Column(name = "registration", nullable = false, length = 20)
     private String registration;
 
-    @ManyToMany(mappedBy = "partners")
-    private Set<Provider> employees = new HashSet<>();
+    @ManyToMany(mappedBy = "listPartners")
+    private Set<Provider> listProviders = new HashSet<>();
 }
