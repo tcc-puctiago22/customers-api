@@ -1,4 +1,4 @@
-package br.com.gisa.customers.v1.commons;
+package br.com.gisa.customers.v1.commons.filter;
 
 
 import lombok.Getter;
@@ -33,7 +33,7 @@ public abstract class BasicFilter {
     Integer limit;
 
     @NotEmpty
-    String sortBy;
+    Set<String> sortBy;
 
     @NotNull
     Sort.Direction orderBy;
@@ -41,12 +41,12 @@ public abstract class BasicFilter {
     protected BasicFilter() {
         offset = 0;
         limit = 5;
-        sortBy = "createdDate";
+        sortBy = Set.of("createdDate");
         orderBy = Sort.Direction.DESC;
     }
 
     public PageRequest getPageable() {
-        return PageRequest.of(offset, limit, Sort.by(orderBy, sortBy));
+        return PageRequest.of(offset, limit, Sort.by(orderBy, sortBy.toArray(new String[0])));
     }
 
     /**

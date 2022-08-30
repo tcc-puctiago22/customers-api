@@ -1,4 +1,4 @@
-package br.com.gisa.customers.v1.commons;
+package br.com.gisa.customers.v1.commons.filter;
 
 
 import javax.persistence.criteria.CriteriaBuilder;

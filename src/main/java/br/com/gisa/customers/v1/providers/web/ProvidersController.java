@@ -10,6 +10,7 @@ import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
 import br.com.gisa.customers.v1.providers.model.Occupational;
 import br.com.gisa.customers.v1.providers.service.OccupationalService;
 import br.com.gisa.customers.v1.providers.service.ProvidersService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -21,6 +22,7 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/v1/providers")
 public class ProvidersController {
 
@@ -38,7 +40,7 @@ public class ProvidersController {
         return new PaginationResponse<>(response);
     }
 
-    @GetMapping(path = "/occupational")
+    @GetMapping("/occupational")
     @ResponseStatus(HttpStatus.OK)
     public PaginationResponse<GetOccupationalResponse> getOccupational(@Valid GetOccupationalRequest request) {
         log.info("GET /v1/occupational:: {}", request);

@@ -1,6 +1,5 @@
 package br.com.gisa.customers.v1.providers.dto.get;
 
-import br.com.gisa.customers.v1.commons.BasicFilter;
 import br.com.gisa.customers.v1.constants.Status;
 import lombok.Getter;
 import lombok.Setter;

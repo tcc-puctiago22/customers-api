@@ -2,6 +2,7 @@
 mysql.server start
 mvn clean install -DskipTests
 
+http://localhost:8080/customers/actuator
 
 ## Operations
 This table shows a list of the current supported operations and the ones that still need implementation.

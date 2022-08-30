@@ -22,8 +22,8 @@ public class Occupational extends BasicModel {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "uuid", nullable = false, length = 36)
-    private String uuid;
+   // @Column(name = "uuid", nullable = false, length = 36)
+    //private String uuid;
 
     @Column(name = "description", nullable = false, length = 200)
     private String description;
@@ -31,9 +31,7 @@ public class Occupational extends BasicModel {
     @Column(name = "code", nullable = false, length = 15)
     private String code;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "provider_id", referencedColumnName = "id")
-    @JsonBackReference
+    @OneToOne(mappedBy = "occupational")
     private Provider provider;
 
 }

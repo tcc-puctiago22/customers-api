@@ -24,3 +24,4 @@ spring:
   flyway:
     enabled: true
     validate-on-migrate: true
+    validateMigrationNaming: true

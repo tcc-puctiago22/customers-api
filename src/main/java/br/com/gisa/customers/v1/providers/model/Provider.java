@@ -31,8 +31,8 @@ public class Provider extends BasicModel { // (prestador)
     @Column(name = "registration", nullable = false, length = 20)
     private String registration;
 
-    @OneToOne(mappedBy = "provider", cascade = CascadeType.PERSIST)
-    @JsonManagedReference
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "occupational_id", referencedColumnName = "id")
     private Occupational occupational;
 
     @ManyToMany(cascade = { CascadeType.ALL })

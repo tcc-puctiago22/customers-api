@@ -1,7 +1,7 @@
 package br.com.gisa.customers.v1.providers.dto.get;
 
-import br.com.gisa.customers.v1.commons.BasicFilter;
-import br.com.gisa.customers.v1.commons.FilterAttribute;
+import br.com.gisa.customers.v1.commons.filter.BasicFilter;
+import br.com.gisa.customers.v1.commons.filter.FilterAttribute;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

@@ -1,25 +1,25 @@
 package br.com.gisa.customers.v1.commons.filter;
 
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Data
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+
+@Getter
+@AllArgsConstructor
 public class SearchCriteria {
 
-    private String key;
-    private FilterOperation operation;
-    private Object value;
-    private String predicate;
+    private final String key;
 
-    public SearchCriteria(String key, String operation, Object value, String predicate) {
-        this.key = key;
-        this.operation = FilterOperation.fromValue(operation);
-        this.value = value;
-        this.predicate = predicate;
-    }
+    private final Operator operator;
 
-    public boolean isOrPredicate() {
-        return predicate.equalsIgnoreCase("OR");
+    private final Object value;
+
+    public Predicate getPredicate(Root<?> root, CriteriaBuilder builder) {
+        return operator.getPredicate(root, builder, key, value);
     }
 
 }

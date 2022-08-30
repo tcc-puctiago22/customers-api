@@ -9,10 +9,12 @@ import org.springframework.data.annotation.CreatedDate;
 import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@MappedSuperclass
 public class BasicModel {
 
     @Column(name = "status", nullable = false)
