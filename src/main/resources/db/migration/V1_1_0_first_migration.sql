@@ -1,4 +1,3 @@
-use customers;
 DROP TABLE IF EXISTS `provider_partner`;
 DROP TABLE IF EXISTS `partner`;
 DROP TABLE IF EXISTS `provider`;
@@ -8,7 +7,6 @@ DROP TABLE IF EXISTS `address`;
 DROP TABLE IF EXISTS `phone`;
 DROP TABLE IF EXISTS `email`;
 DROP TABLE IF EXISTS `customer`;
-DROP TABLE IF EXISTS flyway_schema_history;
 
 CREATE TABLE `customer` (
     `id` bigint(20) AUTO_INCREMENT NOT NULL ,
@@ -19,7 +17,7 @@ CREATE TABLE `customer` (
     `create_at` timestamp,
     `user` varchar(50) DEFAULT 'SYSTEM' NOT NULL,
      PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `address` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -39,7 +37,7 @@ CREATE TABLE `address` (
    PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `phone` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -55,7 +53,7 @@ CREATE TABLE `phone` (
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `phone_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `email` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -69,7 +67,7 @@ CREATE TABLE `email` (
   PRIMARY KEY (`id`),
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `email_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `occupational` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -80,7 +78,7 @@ CREATE TABLE `occupational` (
   `user` varchar(50) DEFAULT 'SYSTEM',
   `status` varchar(10)  DEFAULT 'ACTIVE',
   PRIMARY KEY (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `provider` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -96,7 +94,7 @@ CREATE TABLE `provider` (
     KEY `occupational_id` (`occupational_id`),
     CONSTRAINT `provider_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
     CONSTRAINT `occupational_ibfk_1` FOREIGN KEY (`occupational_id`) REFERENCES `occupational` (`id`)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+);
 
 CREATE TABLE `partner` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -109,7 +107,7 @@ CREATE TABLE `partner` (
       `customer_id` bigint(20) NOT NULL,
   KEY `customer_id` (`customer_id`),
   CONSTRAINT `partner_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ );
 
 CREATE TABLE `provider_partner` (
   `provider_id` bigint(20) NOT NULL,
@@ -120,9 +118,7 @@ CREATE TABLE `provider_partner` (
    FOREIGN KEY (`partner_id`) REFERENCES `partner` (`id`),
   CONSTRAINT `provider_partner_ibfk_2`
    FOREIGN KEY (`provider_id`) REFERENCES `provider` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
+);
 
 CREATE TABLE `associate` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -136,7 +132,7 @@ CREATE TABLE `associate` (
 	`customer_id` bigint(20) NOT NULL,
     KEY `customer_id` (`customer_id`),
    CONSTRAINT `associate_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ );
 
 INSERT INTO occupational (code, description, create_at , user)
 VALUES
