@@ -1,30 +1,55 @@
 package br.com.gisa.customers.v1.model;
 
-import br.com.gisa.customers.v1.constants.Status;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
+import br.com.gisa.customers.v1.providers.model.Provider;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "customer")
-public class Customer extends BasicModel {
+public class Customer extends BasicModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 8994644126379071859L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "uuid", nullable = false, length = 36)
-    private String uuid;
+    @Column(name = "uuid", nullable = false, length = 36,unique = true)
+    private String uuid ;
+
+    @Column(name = "document", nullable = false, length = 15,unique = true)
+    private String document;
 
     @Column(name = "given_name", nullable = false, length = 100)
     private String givenName;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.PERSIST)
+    @JsonManagedReference
+    private Set<Email> emails = new HashSet<>();
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.PERSIST)
+    @JsonManagedReference
+    private Set<Phone> phones = new HashSet<>();
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.PERSIST)
+    @JsonManagedReference
+    private Set<Address> addresses = new HashSet<>();
+
+    @OneToOne(mappedBy = "customer")
+    private Provider provider;
+
 
 }

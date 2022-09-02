@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.providers.dto;
 
+import br.com.gisa.customers.v1.dto.CustomerDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,6 +14,7 @@ public class ProviderDTO {
     private String uuid;
     private String registration;
     private OccupationalDTO occupational;
+    //private CustomerDTO customer;
     private LocalDateTime updateDate;
     private LocalDateTime createDate;
     private String user;

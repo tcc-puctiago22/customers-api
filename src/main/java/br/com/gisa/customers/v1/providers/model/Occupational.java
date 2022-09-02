@@ -10,20 +10,24 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.io.Serial;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Entity(name = "occupational")
-public class Occupational extends BasicModel {
+public class Occupational extends BasicModel implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = -2912692054440039507L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-   // @Column(name = "uuid", nullable = false, length = 36)
-    //private String uuid;
+    @Column(name = "uuid", nullable = false, length = 36)
+    private String uuid;
 
     @Column(name = "description", nullable = false, length = 200)
     private String description;
@@ -31,7 +35,8 @@ public class Occupational extends BasicModel {
     @Column(name = "code", nullable = false, length = 15)
     private String code;
 
-    @OneToOne(mappedBy = "occupational")
+    @OneToOne(mappedBy = "occupational", cascade = CascadeType.PERSIST, orphanRemoval = true)
+    @JsonBackReference
     private Provider provider;
 
 }

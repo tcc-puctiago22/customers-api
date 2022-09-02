@@ -3,8 +3,10 @@ package br.com.gisa.customers.v1.dto.post;
 import br.com.gisa.customers.v1.dto.PersonTypeDTO;
 import lombok.*;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -20,10 +22,12 @@ public class PostCustomerDTO {
     @NotNull
     private String givenName;
     @NotNull
-    private String status;
-    @NotNull
     private PersonTypeDTO personType;
-    private Set<PostEmailDTO> emails = new LinkedHashSet<>();
-    private Set<PostPhoneDTO> phones = new LinkedHashSet<>();
-    private Set<PostAddressDTO> addresses = new LinkedHashSet<>();
+
+    @NotEmpty
+    private Set<PostEmailDTO> emails;
+    @NotEmpty
+    private Set<PostPhoneDTO> phones;
+    @NotEmpty
+    private Set<PostAddressDTO> addresses;
 }

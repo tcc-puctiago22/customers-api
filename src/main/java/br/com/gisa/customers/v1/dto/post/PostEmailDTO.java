@@ -18,5 +18,6 @@ public class PostEmailDTO {
     private String email;
     @NotNull
     private EmailType type;
+
     private Status status = Status.ACTIVE;
 }

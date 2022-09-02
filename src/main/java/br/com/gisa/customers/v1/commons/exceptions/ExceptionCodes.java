@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 public enum ExceptionCodes {
 
+    OCCUPATION_NOT_FOUND(400, "OccupationalNotFound", "Profissão nào enconttrada."),
     INTERNAL_SERVER_ERROR(500, "InternalServerError", "Internal Server Error");
 
     private final int status;

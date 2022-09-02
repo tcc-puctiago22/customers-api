@@ -1,28 +1,34 @@
 package br.com.gisa.customers.v1.model;
 
-import br.com.gisa.customers.v1.constants.Status;
 import br.com.gisa.customers.v1.constants.UF;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "address")
-public class Address extends BasicModel {
+public class Address extends BasicModel implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1814668000698952350L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @NotNull
+    @Column(name = "uuid", length = 36)
+    private String uuid;
 
     @NotNull
     @Audited(withModifiedFlag = true)

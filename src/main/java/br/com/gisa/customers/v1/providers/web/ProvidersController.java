@@ -40,6 +40,13 @@ public class ProvidersController {
         return new PaginationResponse<>(response);
     }
 
+    @PostMapping
+    public ResponseEntity<ProviderDTO> postProviders(@RequestBody @Valid PostProviderDTO request) {
+        log.info("POST api/v1/providers:: {}", request);
+        ProviderDTO response = providersService.postProvider(request);
+        return new ResponseEntity<>(response,HttpStatus.CREATED);
+    }
+
     @GetMapping("/occupational")
     @ResponseStatus(HttpStatus.OK)
     public PaginationResponse<GetOccupationalResponse> getOccupational(@Valid GetOccupationalRequest request) {
@@ -47,13 +54,6 @@ public class ProvidersController {
 
         Page<GetOccupationalResponse> response = occupationalService.findAll(request);
         return new PaginationResponse<>(response);
-    }
-
-    @PostMapping
-    public ResponseEntity<ProviderDTO> postProviders(@Valid PostProviderDTO request) {
-        log.info("POST api/v1/providers:: {}", request);
-        ProviderDTO response = providersService.post(request);
-        return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
 
 

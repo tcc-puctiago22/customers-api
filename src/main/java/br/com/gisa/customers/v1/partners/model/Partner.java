@@ -15,6 +15,7 @@ import java.util.Set;
 @ToString
 @Entity(name = "partner")
 public class Partner extends BasicModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

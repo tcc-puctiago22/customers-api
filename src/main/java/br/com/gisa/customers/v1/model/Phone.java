@@ -1,27 +1,33 @@
 package br.com.gisa.customers.v1.model;
 
 import br.com.gisa.customers.v1.constants.PhoneType;
-import br.com.gisa.customers.v1.constants.Status;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.sun.istack.NotNull;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
 import org.hibernate.envers.Audited;
-import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "phone")
-public class Phone extends BasicModel {
+public class Phone extends BasicModel implements Serializable {
 
+    @Serial
+    private static final long serialVersionUID = -5616337837256350880L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @NotNull
+    @Column(name = "uuid", length = 36)
+    private String uuid;
 
     @NotNull
     @Audited(withModifiedFlag = true)
@@ -30,17 +36,22 @@ public class Phone extends BasicModel {
 
     @NotNull
     @Audited(withModifiedFlag = true)
-    @Column(name = "email", length = 2)
-    private Integer dd;
+    @Column(name = "ddd", length = 2)
+    private Integer ddd;
 
     @NotNull
     @Audited(withModifiedFlag = true)
-    @Column(name = "phone", length = 11)
-    private Integer phone;
+    @Column(name = "phone_number", length = 11)
+    private String phoneNumber;
 
     @Audited(withModifiedFlag = true)
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private PhoneType type;
+
+    @ManyToOne(cascade=CascadeType.PERSIST)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JsonBackReference
+    private Customer customer;
 
 }

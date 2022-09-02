@@ -20,9 +20,9 @@ public class PostPhoneDTO {
 
     private String country="+55";
     @NotNull
-    private Integer dd;
+    private Integer ddd;
     @NotNull
-    private Integer phone;
+    private String phoneNumber;
     @NotNull
     private PhoneType type;
     private Status status = Status.ACTIVE;

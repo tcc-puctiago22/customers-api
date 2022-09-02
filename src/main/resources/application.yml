@@ -16,7 +16,7 @@ spring:
       pool-name: customers
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
       jdbc:
         time_zone: America/Sao_Paulo
     show-sql: true
