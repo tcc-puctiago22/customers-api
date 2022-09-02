@@ -49,10 +49,7 @@ public class Provider extends BasicModel implements Serializable {
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
-    @ManyToMany
-    @JoinTable(name="provider_partner", joinColumns=
-            {@JoinColumn(name="partner_id")}, inverseJoinColumns=
-            {@JoinColumn(name="provider_id")})
+    @ManyToMany(mappedBy = "listProviders")
     Set<Partner> listPartners = new HashSet<>();
 
 

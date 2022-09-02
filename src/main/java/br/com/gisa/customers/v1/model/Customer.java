@@ -1,6 +1,8 @@
 package br.com.gisa.customers.v1.model;
 
+import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
+import br.com.gisa.customers.v1.partners.model.Partner;
 import br.com.gisa.customers.v1.providers.model.Provider;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -33,6 +35,9 @@ public class Customer extends BasicModel implements Serializable {
     @Column(name = "document", nullable = false, length = 15,unique = true)
     private String document;
 
+    @Column(name = "person_type", nullable = false, length = 2,unique = true)
+    private String personType;
+
     @Column(name = "given_name", nullable = false, length = 100)
     private String givenName;
 
@@ -51,5 +56,10 @@ public class Customer extends BasicModel implements Serializable {
     @OneToOne(mappedBy = "customer")
     private Provider provider;
 
+    @OneToOne(mappedBy = "customer")
+    private Partner partner;
+
+    @OneToOne(mappedBy = "customer")
+    private Associate associate;
 
 }

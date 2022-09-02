@@ -5,8 +5,9 @@ import lombok.Getter;
 
 @Getter
 public enum ExceptionCodes {
-
-    OCCUPATION_NOT_FOUND(400, "OccupationalNotFound", "Profissão nào enconttrada."),
+    CPF_IS_INVALID(400, "CpfInvalid", "CPF é invalido."),
+    OCCUPATION_NOT_FOUND(400, "OccupationalNotFound", "Profissão não encontrada."),
+    PARTNER_NOT_FOUND(400, "PartnerNotFound", "Parceiro não encontrado."),
     INTERNAL_SERVER_ERROR(500, "InternalServerError", "Internal Server Error");
 
     private final int status;

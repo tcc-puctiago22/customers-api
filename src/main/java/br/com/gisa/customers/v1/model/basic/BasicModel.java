@@ -24,12 +24,11 @@ public class BasicModel implements Serializable {
     private Status status= Status.ACTIVE;
 
     @UpdateTimestamp
-    @Column(name = "updated_at")
+    @Column(name = "create_at")
     private LocalDateTime updateDate;
 
-    //@CreatedDate
     @CreationTimestamp
-    @Column(name = "create_at")
+    @Column(name = "updated_at")
     private LocalDateTime createdDate;
 
     @Column(name = "user", nullable = false, length = 50)

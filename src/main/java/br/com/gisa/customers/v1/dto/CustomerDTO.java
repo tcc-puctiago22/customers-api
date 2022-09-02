@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.dto;
 
+import br.com.gisa.customers.v1.constants.Status;
 import lombok.*;
 import java.time.LocalDateTime;
 import java.util.LinkedHashSet;
@@ -21,8 +22,9 @@ public class CustomerDTO {
     private String status;
     @NonNull
     private PersonTypeDTO personType;
-    private LocalDateTime updatedAt;
-    private LocalDateTime createdAt;
+    private LocalDateTime updateDate;
+    private LocalDateTime createdDate;
+    private String user;
     private Set<EmailDTO> emails = new LinkedHashSet<>();
     private Set<PhoneDTO> phones = new LinkedHashSet<>();
     private Set<AddressDTO> addresses = new LinkedHashSet<>();

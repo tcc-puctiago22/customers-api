@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.associates.model;
 
+import br.com.gisa.customers.v1.model.Customer;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
 import lombok.*;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Builder
 @ToString
 @Entity(name = "associate")
@@ -24,6 +26,13 @@ public class Associate extends BasicModel {
     @Column(name = "registration", nullable = false, length = 20)
     private String registration;
 
-    @Column(name = "plan_uuid", nullable = false, length = 36)
+    @Column(name = "plan_uuid", length = 36)
     private String plan_uuid;
+
+    @Column(name = "account_uuid", nullable = false, length = 36)
+    private String accountUuid;
+
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;
 }

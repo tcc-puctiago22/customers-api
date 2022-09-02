@@ -5,6 +5,8 @@ import br.com.gisa.customers.v1.constants.Status;
 import com.sun.istack.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Getter
 @Setter
 @ToString
@@ -17,4 +19,7 @@ public class EmailDTO {
     @NotNull
     private EmailType type;
     private Status status;
+    private LocalDateTime updateDate;
+    private LocalDateTime createdDate;
+    private String user;
 }

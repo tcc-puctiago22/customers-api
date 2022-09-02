@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("br.com.gisa.customers.v1")
-public class CustomersApiApplication {
+public class Application {
 
 	@Bean
 	public ModelMapper modelMapper() {
@@ -16,7 +16,7 @@ public class CustomersApiApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(CustomersApiApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

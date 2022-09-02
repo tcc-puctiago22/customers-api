@@ -18,6 +18,7 @@ CREATE TABLE `customer` (
     `id` bigint(20) AUTO_INCREMENT NOT NULL ,
     `uuid` varchar(36) NOT NULL UNIQUE,
     `document` varchar(15) NOT NULL UNIQUE,
+    `person_type` varchar(2) NOT NULL,
     `given_name` varchar(100) NOT NULL,
     `status` varchar(30) NOT NULL,
     `updated_at` timestamp DEFAULT CURRENT_TIMESTAMP,
@@ -110,6 +111,7 @@ CREATE TABLE `provider` (
 CREATE TABLE `partner` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL,
+    `fantasy_name` varchar(100) NOT NULL,
     `registration` varchar(100),
  	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -124,7 +126,8 @@ CREATE TABLE `provider_partner` (
   `provider_id` bigint(20) NOT NULL,
   `partner_id` bigint(20) NOT NULL,
   PRIMARY KEY (`provider_id`,`partner_id`),
-  KEY `provider_id` (`provider_id`),
+  KEY `provider_id` (`partner_id`),
+
   CONSTRAINT `provider_partner_ibfk_1`
    FOREIGN KEY (`partner_id`) REFERENCES `partner` (`id`),
   CONSTRAINT `provider_partner_ibfk_2`
@@ -134,8 +137,9 @@ CREATE TABLE `provider_partner` (
 CREATE TABLE `associate` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL UNIQUE,
-    `registration` varchar(100),
+    `registration` varchar(100) NOT NULL,
      `plan_uuid` varchar(36),
+     `account_uuid` varchar(36),
 	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `user` varchar(50) DEFAULT 'SYSTEM',
