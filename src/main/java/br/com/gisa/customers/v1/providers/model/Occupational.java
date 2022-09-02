@@ -13,6 +13,7 @@ import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -35,8 +36,7 @@ public class Occupational extends BasicModel implements Serializable {
     @Column(name = "code", nullable = false, length = 15)
     private String code;
 
-    @OneToOne(mappedBy = "occupational", cascade = CascadeType.PERSIST, orphanRemoval = true)
-    @JsonBackReference
-    private Provider provider;
+    @OneToMany(mappedBy = "occupational",  orphanRemoval = true,fetch = FetchType.LAZY)
+    private List<Provider> providers;
 
 }

@@ -42,7 +42,7 @@ public class ProvidersService {
         return list.map(this::convertToDto);
     }
 
-    @Transactional
+    @Transactional(value = Transactional.TxType.REQUIRES_NEW)
     public ProviderDTO postProvider(PostProviderDTO request) {
 
         Occupational occupational= getOccupational(request.getUuidOccupational());

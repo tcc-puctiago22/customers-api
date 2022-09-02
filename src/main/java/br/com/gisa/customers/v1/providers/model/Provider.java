@@ -41,9 +41,8 @@ public class Provider extends BasicModel implements Serializable {
     @Column(name = "registration", nullable = false, length = 20)
     private String registration ;
 
-    @OneToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
     @JoinColumn(name = "occupational_id", referencedColumnName = "id")
-    @JsonManagedReference
     private Occupational occupational;
 
     @OneToOne(cascade = CascadeType.ALL)
