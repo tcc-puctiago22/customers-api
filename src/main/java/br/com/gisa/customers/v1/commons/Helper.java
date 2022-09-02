@@ -24,7 +24,7 @@ public class Helper {
 
     public String getProvideregistration(){
         Random gerador = new Random();
-        int number = gerador.nextInt(5,5);
+        int number = gerador.nextInt(10);
         long time = Timestamp.valueOf(LocalDateTime.now()).getTime();
         return SISA.concat(String.valueOf(time))
                 .concat(TRACO)

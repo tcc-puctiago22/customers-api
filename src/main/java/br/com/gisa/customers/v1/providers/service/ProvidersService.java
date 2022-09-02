@@ -49,7 +49,6 @@ public class ProvidersService {
         Provider provider = converterDTOtoProvider(request);
         provider.setOccupational(occupational);
         provider.getCustomer().setProvider(null);
-        provider.getOccupational().setProvider(null);
         provider.setRegistration(helper.getProvideregistration());
         providersRepository.save(provider);
 
