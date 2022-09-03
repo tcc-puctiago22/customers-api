@@ -6,9 +6,9 @@ spring:
     name: customers-api
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/customers
-    username: customers
-    password: customers
+    url: jdbc:mysql://localhost:3307/siscustomers
+    username: customersapi
+    password: nE5kMc7JCGNqwDQN
     hikari:
       connectionTimeout: 30000
       maximumPoolSize: 10

@@ -17,6 +17,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 public class ProvidersService {
@@ -41,9 +43,14 @@ public class ProvidersService {
     @Transactional(value = Transactional.TxType.REQUIRES_NEW)
     public ProviderDTO postProvider(PostProviderDTO request) {
 
-        Occupational occupational= getOccupational(request.getUuidOccupational());
         Provider provider = helper.converterDTOtoProvider(request);
-        provider.setOccupational(occupational);
+        Set<Occupational> listOccupational = new HashSet<>();
+
+        for(String occu: request.getListOccupational()){
+            Occupational occupational = getOccupational(occu);
+            listOccupational.add(occupational);
+        }
+        provider.setListOccupational(listOccupational);
         providersRepository.saveAndFlush(provider);
 
         return converterProviderToDTO(provider);

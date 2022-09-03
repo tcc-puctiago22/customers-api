@@ -1,5 +1,11 @@
 # customers-api
-mysql.server start
+
+required
+- https://docs.docker.com/
+
+docker-compose up -d
+docker-compose up
+
 mvn clean install -DskipTests
 
 http://localhost:8080/customers/actuator

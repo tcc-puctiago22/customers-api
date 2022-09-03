@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "d6977564-bdc7-4c13-9263-8f4f0f42d481",
+		"name": "puc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "occupational",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "Fr6r4kxeD224lEctmBj7N6T7ujj1x04O8FnAHHjr"
+					},
+					{
+						"key": "Transaction-Id",
+						"value": "e7b27a2d-fce7-468c-94c4-864dad8c614e"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMTk3MzRjZS0yMmVhLTQ0MTYtYjM3ZC0xN2QyODkwMzAwYzEiLCJ3ZWJzaXRlIjoicGljcGF5LmNvbS5iciIsImFkZHJlc3MiOnsiZm9ybWF0dGVkIjoiQXYgTWFudWVsIEJhbmRlaXJhLCAyOTEgLSBTUCJ9LCJpc3MiOiJodHRwczovL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3VzLWVhc3QtMV9SeUh6eEdORFYiLCJjb2duaXRvOnVzZXJuYW1lIjoiMjI4OTY0MzEwMDAxMTAiLCJnaXZlbl9uYW1lIjoiUGljUGF5IiwiYXVkIjoiNjhkaGY4NTE1dXA2NmY4NWs3bnBxdTJwcjgiLCJldmVudF9pZCI6ImY2ZmE0NmU2LWVkNDctNDgyYi05N2ZiLTNjMjljZGYyM2EyYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjAzMjg3NTg5LCJuYW1lIjoiUGljUGF5IiwiY3VzdG9tOmRvY3VtZW50IjoiMjI4OTY0MzEwMDAxMTAiLCJleHAiOjE2NDA4NzYxMDgsImlhdCI6MTY0MDg3NjEwOCwiZW1haWwiOiJwaWNwYXlAcGljcGF5LmNvbSIsImp0aSI6IjBjZGZjMGZhLTUxNzAtNDFjNy05NDgxLTM5OGRjNzMxYmQxMCJ9.hvsqdwyOMwSjyyoPGxrkAohg9j4Z1y_pBKRdlbvkiL4"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/customers/v1/providers/occupational",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"v1",
+						"providers",
+						"occupational"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provider",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "Fr6r4kxeD224lEctmBj7N6T7ujj1x04O8FnAHHjr"
+					},
+					{
+						"key": "Transaction-Id",
+						"value": "e7b27a2d-fce7-468c-94c4-864dad8c614e"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMTk3MzRjZS0yMmVhLTQ0MTYtYjM3ZC0xN2QyODkwMzAwYzEiLCJ3ZWJzaXRlIjoicGljcGF5LmNvbS5iciIsImFkZHJlc3MiOnsiZm9ybWF0dGVkIjoiQXYgTWFudWVsIEJhbmRlaXJhLCAyOTEgLSBTUCJ9LCJpc3MiOiJodHRwczovL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3VzLWVhc3QtMV9SeUh6eEdORFYiLCJjb2duaXRvOnVzZXJuYW1lIjoiMjI4OTY0MzEwMDAxMTAiLCJnaXZlbl9uYW1lIjoiUGljUGF5IiwiYXVkIjoiNjhkaGY4NTE1dXA2NmY4NWs3bnBxdTJwcjgiLCJldmVudF9pZCI6ImY2ZmE0NmU2LWVkNDctNDgyYi05N2ZiLTNjMjljZGYyM2EyYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjAzMjg3NTg5LCJuYW1lIjoiUGljUGF5IiwiY3VzdG9tOmRvY3VtZW50IjoiMjI4OTY0MzEwMDAxMTAiLCJleHAiOjE2NDA4NzYxMDgsImlhdCI6MTY0MDg3NjEwOCwiZW1haWwiOiJwaWNwYXlAcGljcGF5LmNvbSIsImp0aSI6IjBjZGZjMGZhLTUxNzAtNDFjNy05NDgxLTM5OGRjNzMxYmQxMCJ9.hvsqdwyOMwSjyyoPGxrkAohg9j4Z1y_pBKRdlbvkiL4"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/customers/v1/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"v1",
+						"providers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provider/providers",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "Fr6r4kxeD224lEctmBj7N6T7ujj1x04O8FnAHHjr"
+					},
+					{
+						"key": "Transaction-Id",
+						"value": "e7b27a2d-fce7-468c-94c4-864dad8c614e"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMTk3MzRjZS0yMmVhLTQ0MTYtYjM3ZC0xN2QyODkwMzAwYzEiLCJ3ZWJzaXRlIjoicGljcGF5LmNvbS5iciIsImFkZHJlc3MiOnsiZm9ybWF0dGVkIjoiQXYgTWFudWVsIEJhbmRlaXJhLCAyOTEgLSBTUCJ9LCJpc3MiOiJodHRwczovL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3VzLWVhc3QtMV9SeUh6eEdORFYiLCJjb2duaXRvOnVzZXJuYW1lIjoiMjI4OTY0MzEwMDAxMTAiLCJnaXZlbl9uYW1lIjoiUGljUGF5IiwiYXVkIjoiNjhkaGY4NTE1dXA2NmY4NWs3bnBxdTJwcjgiLCJldmVudF9pZCI6ImY2ZmE0NmU2LWVkNDctNDgyYi05N2ZiLTNjMjljZGYyM2EyYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjAzMjg3NTg5LCJuYW1lIjoiUGljUGF5IiwiY3VzdG9tOmRvY3VtZW50IjoiMjI4OTY0MzEwMDAxMTAiLCJleHAiOjE2NDA4NzYxMDgsImlhdCI6MTY0MDg3NjEwOCwiZW1haWwiOiJwaWNwYXlAcGljcGF5LmNvbSIsImp0aSI6IjBjZGZjMGZhLTUxNzAtNDFjNy05NDgxLTM5OGRjNzMxYmQxMCJ9.hvsqdwyOMwSjyyoPGxrkAohg9j4Z1y_pBKRdlbvkiL4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"listProviders\": [\n       {\n           \"uuid\": \"0d0a368b-6197-494d-9f93-f24db1ae432e\"\n       }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/v1/partner/07d6334a-0168-4f33-8ba4-9d80892680b1/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"v1",
+						"partner",
+						"07d6334a-0168-4f33-8ba4-9d80892680b1",
+						"providers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "partner",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "Fr6r4kxeD224lEctmBj7N6T7ujj1x04O8FnAHHjr"
+					},
+					{
+						"key": "Transaction-Id",
+						"value": "e7b27a2d-fce7-468c-94c4-864dad8c614e"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMTk3MzRjZS0yMmVhLTQ0MTYtYjM3ZC0xN2QyODkwMzAwYzEiLCJ3ZWJzaXRlIjoicGljcGF5LmNvbS5iciIsImFkZHJlc3MiOnsiZm9ybWF0dGVkIjoiQXYgTWFudWVsIEJhbmRlaXJhLCAyOTEgLSBTUCJ9LCJpc3MiOiJodHRwczovL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3VzLWVhc3QtMV9SeUh6eEdORFYiLCJjb2duaXRvOnVzZXJuYW1lIjoiMjI4OTY0MzEwMDAxMTAiLCJnaXZlbl9uYW1lIjoiUGljUGF5IiwiYXVkIjoiNjhkaGY4NTE1dXA2NmY4NWs3bnBxdTJwcjgiLCJldmVudF9pZCI6ImY2ZmE0NmU2LWVkNDctNDgyYi05N2ZiLTNjMjljZGYyM2EyYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjAzMjg3NTg5LCJuYW1lIjoiUGljUGF5IiwiY3VzdG9tOmRvY3VtZW50IjoiMjI4OTY0MzEwMDAxMTAiLCJleHAiOjE2NDA4NzYxMDgsImlhdCI6MTY0MDg3NjEwOCwiZW1haWwiOiJwaWNwYXlAcGljcGF5LmNvbSIsImp0aSI6IjBjZGZjMGZhLTUxNzAtNDFjNy05NDgxLTM5OGRjNzMxYmQxMCJ9.hvsqdwyOMwSjyyoPGxrkAohg9j4Z1y_pBKRdlbvkiL4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"fantasyName\": \"João silva LTDA\",\n    \"customer\": {\n        \"document\": \"74429759000120\",\n        \"givenName\": \"João da Silva\",\n        \"emails\": [\n            {\n                \"email\": \"joaosilva03@gmail.com\",\n                \"type\": \"PESSOAL\"\n            }\n        ],\n        \"phones\": [\n            {\n                \"ddd\": 21,\n                \"phoneNumber\": 924242524,\n                \"type\": \"PESSOAL\"\n            }\n        ],\n        \"addresses\": [\n            {\n                \"postcode\": \"05317-020\",\n                \"streetName\": \"Av. Manuel Bandeira\",\n                \"streetNumber\": 291,\n                \"complement\": \"Bloco A\",\n                \"district\": \"Vila Leopoldina\",\n                \"uf\": \"SP\",\n                \"city\": \"São Paulo\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/v1/partner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"v1",
+						"partner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "provider",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-api-key",
+						"value": "Fr6r4kxeD224lEctmBj7N6T7ujj1x04O8FnAHHjr"
+					},
+					{
+						"key": "Transaction-Id",
+						"value": "e7b27a2d-fce7-468c-94c4-864dad8c614e"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMTk3MzRjZS0yMmVhLTQ0MTYtYjM3ZC0xN2QyODkwMzAwYzEiLCJ3ZWJzaXRlIjoicGljcGF5LmNvbS5iciIsImFkZHJlc3MiOnsiZm9ybWF0dGVkIjoiQXYgTWFudWVsIEJhbmRlaXJhLCAyOTEgLSBTUCJ9LCJpc3MiOiJodHRwczovL2NvZ25pdG8taWRwLnVzLWVhc3QtMS5hbWF6b25hd3MuY29tL3VzLWVhc3QtMV9SeUh6eEdORFYiLCJjb2duaXRvOnVzZXJuYW1lIjoiMjI4OTY0MzEwMDAxMTAiLCJnaXZlbl9uYW1lIjoiUGljUGF5IiwiYXVkIjoiNjhkaGY4NTE1dXA2NmY4NWs3bnBxdTJwcjgiLCJldmVudF9pZCI6ImY2ZmE0NmU2LWVkNDctNDgyYi05N2ZiLTNjMjljZGYyM2EyYyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNjAzMjg3NTg5LCJuYW1lIjoiUGljUGF5IiwiY3VzdG9tOmRvY3VtZW50IjoiMjI4OTY0MzEwMDAxMTAiLCJleHAiOjE2NDA4NzYxMDgsImlhdCI6MTY0MDg3NjEwOCwiZW1haWwiOiJwaWNwYXlAcGljcGF5LmNvbSIsImp0aSI6IjBjZGZjMGZhLTUxNzAtNDFjNy05NDgxLTM5OGRjNzMxYmQxMCJ9.hvsqdwyOMwSjyyoPGxrkAohg9j4Z1y_pBKRdlbvkiL4"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uuidOccupational\": \"2f04150e-c6b3-4ede-900f-f803a2039456\",\n    \"customer\": {\n        \"document\": \"23962877029\",\n        \"givenName\": \"João da Silva\",\n        \"emails\": [\n            {\n                \"email\": \"joaosilva03@gmail.com\",\n                \"type\": \"PESSOAL\"\n            }\n        ],\n        \"phones\": [\n            {\n                \"ddd\": 21,\n                \"phoneNumber\": 924242524,\n                \"type\": \"PESSOAL\"\n            }\n        ],\n        \"addresses\": [\n            {\n                \"postcode\": \"05317-020\",\n                \"streetName\": \"Av. Manuel Bandeira\",\n                \"streetNumber\": 291,\n                \"complement\": \"Bloco A\",\n                \"district\": \"Vila Leopoldina\",\n                \"uf\": \"SP\",\n                \"city\": \"São Paulo\"\n            }\n        ]\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customers/v1/providers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers",
+						"v1",
+						"providers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

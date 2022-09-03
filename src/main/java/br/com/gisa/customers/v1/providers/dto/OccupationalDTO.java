@@ -17,6 +17,7 @@ public class OccupationalDTO {
     private String uuid;
     private String description;
     private String code;
+    private String type;
     private Status status;
     private LocalDateTime updateDate;
     private LocalDateTime createDate;

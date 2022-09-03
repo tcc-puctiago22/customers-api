@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Random;
 import java.util.UUID;
 
@@ -49,6 +50,10 @@ public class Helper {
         entity.setUuid(generateUUID());
         entity.setRegistration(getRegistration(SISA));
         entity.getCustomer().setProvider(null);
+        entity.setListPartners(new HashSet<>());
+        entity.setListOccupational(new HashSet<>());
+        entity.getCustomer().setProvider(null);
+
         return entity;
 
     }

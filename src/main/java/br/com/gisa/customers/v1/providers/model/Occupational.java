@@ -1,8 +1,10 @@
 package br.com.gisa.customers.v1.providers.model;
 
 
+import br.com.gisa.customers.v1.constants.OccupationalType;
 import br.com.gisa.customers.v1.constants.Status;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
+import br.com.gisa.customers.v1.partners.model.Partner;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +15,9 @@ import javax.persistence.*;
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,13 +34,17 @@ public class Occupational extends BasicModel implements Serializable {
     @Column(name = "uuid", nullable = false, length = 36)
     private String uuid;
 
+    @Column(name = "type", nullable = false, length = 36)
+    @Enumerated(EnumType.STRING)
+    private OccupationalType type;
+
     @Column(name = "description", nullable = false, length = 200)
     private String description;
 
     @Column(name = "code", nullable = false, length = 15)
     private String code;
 
-    @OneToMany(mappedBy = "occupational",  orphanRemoval = true,fetch = FetchType.LAZY)
-    private List<Provider> providers;
+    @ManyToMany(mappedBy = "listOccupational",fetch = FetchType.LAZY)
+    Set<Provider> listProviders = new HashSet<>();
 
 }

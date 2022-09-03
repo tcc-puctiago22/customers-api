@@ -28,8 +28,6 @@ import java.util.UUID;
 public class Provider extends BasicModel implements Serializable {
     @Serial
     private static final long serialVersionUID = 1399051303176191347L;// (prestador)
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -41,9 +39,11 @@ public class Provider extends BasicModel implements Serializable {
     @Column(name = "registration", nullable = false, length = 20)
     private String registration ;
 
-    @ManyToOne(cascade = CascadeType.PERSIST,fetch = FetchType.LAZY)
-    @JoinColumn(name = "occupational_id", referencedColumnName = "id")
-    private Occupational occupational;
+    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinTable(name="provider_occupational", joinColumns=
+            {@JoinColumn(name="provider_id")}, inverseJoinColumns=
+            {@JoinColumn(name="occupational_id")})
+    private Set<Occupational> listOccupational = new HashSet<>();
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
@@ -51,6 +51,5 @@ public class Provider extends BasicModel implements Serializable {
 
     @ManyToMany(mappedBy = "listProviders")
     Set<Partner> listPartners = new HashSet<>();
-
 
 }

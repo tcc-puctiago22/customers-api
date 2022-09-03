@@ -5,6 +5,7 @@ import br.com.gisa.customers.v1.commons.exceptions.ResponseCodeException;
 import br.com.gisa.customers.v1.commons.filter.BasicFilter;
 import br.com.gisa.customers.v1.commons.filter.FilterAttribute;
 import br.com.gisa.customers.v1.commons.filter.Operator;
+import br.com.gisa.customers.v1.constants.OccupationalType;
 import br.com.gisa.customers.v1.constants.Status;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,6 +34,9 @@ public class GetOccupationalRequest extends BasicFilter {
 
     @FilterAttribute(name = "code")
     private String code;
+
+    @FilterAttribute(name = "type")
+    private OccupationalType type;
 
     @FilterAttribute(name = "status")
     @Enumerated(EnumType.STRING)
