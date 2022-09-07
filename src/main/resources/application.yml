@@ -7,7 +7,7 @@ spring:
     name: customers-api
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/siscustomers
+    url: ${SPRING_DATASOURCE_UR}
     username: customersapi
     password: nE5kMc7JCGNqwDQN
     hikari:

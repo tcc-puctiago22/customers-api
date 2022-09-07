@@ -1,14 +1,17 @@
 version: "3.7"
 services:
-  springboot-customers-api:
+  customers_api:
     image: customers-api:1
     build:
       context: ./
       dockerfile: Dockerfile
-    volumes:
-      - /data/customers-api
     ports:
-      - "8081:8081"
+      - "8080:8080"
+    depends_on:
+      - mysql_db
+    command: sh -c './wait-for mysql_db:3306 -- npm start'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/siscustomers
   mysql_db:
     image: "mysql:8.0"
     restart: always
@@ -16,6 +19,6 @@ services:
       - 3307:3306
     environment:
       MYSQL_DATABASE: siscustomers
-      MYSQL_USER: "customersapi"
-      MYSQL_PASSWORD: "nE5kMc7JCGNqwDQN"
-      MYSQL_ROOT_PASSWORD: "nE5kMc7JCGNqwDQN"
+      MYSQL_USER: customersapi
+      MYSQL_PASSWORD: nE5kMc7JCGNqwDQN
+      MYSQL_ROOT_PASSWORD: nE5kMc7JCGNqwDQN
