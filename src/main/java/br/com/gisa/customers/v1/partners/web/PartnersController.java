@@ -4,6 +4,7 @@ import br.com.gisa.customers.v1.partners.dto.post.PartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.post.PostPartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.put.PutPatnerDTO;
 import br.com.gisa.customers.v1.partners.service.PartnerService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/partner")
+@Tag(name = "Partners", description = "Conveniados API")
 public class PartnersController {
 
     @Autowired

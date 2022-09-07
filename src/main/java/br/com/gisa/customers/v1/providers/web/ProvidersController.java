@@ -10,6 +10,7 @@ import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
 import br.com.gisa.customers.v1.providers.model.Occupational;
 import br.com.gisa.customers.v1.providers.service.OccupationalService;
 import br.com.gisa.customers.v1.providers.service.ProvidersService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/providers")
+@Tag(name = "Providers", description = "Prestadores API")
 public class ProvidersController {
 
     @Autowired

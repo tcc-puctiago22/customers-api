@@ -97,7 +97,7 @@ CREATE TABLE `occupational` (
 CREATE TABLE `provider` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL,
-    `registration` varchar(100),
+    `registration` varchar(30),
 	`create_at` datetime DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
    `user` varchar(50) DEFAULT 'SYSTEM',
@@ -114,7 +114,8 @@ CREATE TABLE `partner` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL,
     `fantasy_name` varchar(100) NOT NULL,
-    `registration` varchar(100),
+    `site` varchar(100),
+    `registration` varchar(30)NOT NULL,
  	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `user` varchar(50) DEFAULT 'SYSTEM',
@@ -149,7 +150,7 @@ CREATE TABLE `provider_occupational` (
 CREATE TABLE `associate` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL UNIQUE,
-    `registration` varchar(100) NOT NULL,
+    `registration` varchar(30) NOT NULL,
      `plan_uuid` varchar(36),
      `account_uuid` varchar(36),
 	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -160,16 +161,3 @@ CREATE TABLE `associate` (
     KEY `customer_id` (`customer_id`),
    CONSTRAINT `associate_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
  );
-
-INSERT INTO occupational (code,uuid, type, description, create_at , user)
-VALUES
- ('MC01','2f04150e-c6b3-4ede-900f-f803a2039456','MEDICO', 'Cardiologia', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MC02','ec019059-83b3-4bce-b812-171e8f7db36b',"MEDICO",'Clinico Geral', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MD03','1f9336be-e17e-48af-a607-9066b16c7492','MEDICO', 'Dermatologia', '2022-08-26 00:00:00', 'tiagobrito'),
- ('ME04','9b715541-967a-4e79-9c10-c1b0d334a6bd','MEDICO', 'Enfermagem', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MP05','38da7543-a8a1-45cc-b1c7-fe6845bdd08e','MEDICO', 'Pediatria', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MT06','7f2dd0f6-cb71-43ef-82e8-1168511340a0','MEDICO', 'Terapia Ocupacional', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MU07','b5b520fd-5f17-463c-b95b-f1ffd213256a','MEDICO', 'Urologia', '2022-08-26 00:00:00', 'tiagobrito'),
- ('OE08','4bbe9ca2-dd69-40f0-a015-54f4fe056067','ODONTO', 'Endodontia', '2022-08-26 00:00:00', 'tiagobrito'),
- ('OE09','9dc52c0b-61fc-41b3-8c61-67b84c2074a3','ODONTO', 'Implantes', '2022-08-26 00:00:00', 'tiagobrito'),
- ('OE010','a2d945d5-0858-4a43-a2b4-f0f770bb2b41','ODONTO', 'Ordontia', '2022-08-26 00:00:00', 'tiagobrito');

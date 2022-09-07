@@ -24,6 +24,7 @@ public class PartnerDTO {
     private String registration;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String fantasyName;
+    private String site;
     private CustomerDTO customer;
     private Set<ProviderDTO> listProviders;
     @JsonInclude(JsonInclude.Include.NON_NULL)

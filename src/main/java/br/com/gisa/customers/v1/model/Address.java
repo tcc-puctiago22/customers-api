@@ -9,16 +9,13 @@ import lombok.Setter;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "address")
 public class Address extends BasicModel implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1814668000698952350L;
 
     @Id

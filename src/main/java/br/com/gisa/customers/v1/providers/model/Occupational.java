@@ -24,7 +24,6 @@ import java.util.Set;
 @Entity(name = "occupational")
 public class Occupational extends BasicModel implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = -2912692054440039507L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

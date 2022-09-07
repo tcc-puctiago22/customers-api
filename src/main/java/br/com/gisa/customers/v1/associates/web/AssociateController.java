@@ -1,11 +1,13 @@
 package br.com.gisa.customers.v1.associates.web;
 
+import br.com.gisa.customers.v1.associates.docs.ApiPostAssocieateDefinition;
 import br.com.gisa.customers.v1.associates.dto.post.AssociateDTO;
 import br.com.gisa.customers.v1.associates.dto.post.PostAssociateDTO;
 import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.associates.service.AssociateService;
 import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
 import br.com.gisa.customers.v1.providers.dto.post.PostProviderDTO;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,7 @@ import javax.validation.Valid;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/v1/associetes")
+@Tag(name = "Associetes", description = "Associados API")
 public class AssociateController {
 
     @Autowired
@@ -29,6 +32,7 @@ public class AssociateController {
 
 
     @PostMapping
+    @ApiPostAssocieateDefinition
     public ResponseEntity<AssociateDTO> post(@RequestBody @Valid PostAssociateDTO request) {
         log.info("POST api/v1/providers:: {}", request);
         AssociateDTO response = associateService.postAssociate(request);

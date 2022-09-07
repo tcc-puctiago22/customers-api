@@ -1,5 +1,14 @@
 version: "3.7"
 services:
+  springboot-customers-api:
+    image: customers-api:1
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/customers-api
+    ports:
+      - "8081:8081"
   mysql_db:
     image: "mysql:8.0"
     restart: always

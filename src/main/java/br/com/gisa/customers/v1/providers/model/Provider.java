@@ -8,14 +8,9 @@ import lombok.*;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
-import java.util.UUID;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @NoArgsConstructor
@@ -26,7 +21,6 @@ import java.util.UUID;
 @ToString
 @Entity(name = "provider")
 public class Provider extends BasicModel implements Serializable {
-    @Serial
     private static final long serialVersionUID = 1399051303176191347L;// (prestador)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +30,7 @@ public class Provider extends BasicModel implements Serializable {
     @Column(name = "uuid", nullable = false, length = 36)
     private String uuid;
 
-    @Column(name = "registration", nullable = false, length = 20)
+    @Column(name = "registration", nullable = false, length = 30)
     private String registration ;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)

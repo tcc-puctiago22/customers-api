@@ -4,24 +4,20 @@ import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.model.basic.BasicModel;
 import br.com.gisa.customers.v1.partners.model.Partner;
 import br.com.gisa.customers.v1.providers.model.Provider;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "customer")
 public class Customer extends BasicModel implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 8994644126379071859L;
 
     @Id

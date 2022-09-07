@@ -9,16 +9,13 @@ import lombok.Setter;
 import org.hibernate.envers.Audited;
 
 import javax.persistence.*;
-import java.io.Serial;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity(name = "email")
 public class Email extends BasicModel implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = -5004963806721766842L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

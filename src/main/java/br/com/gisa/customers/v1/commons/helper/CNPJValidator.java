@@ -1,8 +1,5 @@
 package br.com.gisa.customers.v1.commons.helper;
 
-import org.hibernate.validator.constraints.br.CNPJ;
-import org.jetbrains.annotations.NotNull;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 import java.util.InputMismatchException;
