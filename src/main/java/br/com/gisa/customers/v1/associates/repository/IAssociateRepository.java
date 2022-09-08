@@ -9,9 +9,13 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
+import java.util.Optional;
+
 public interface IAssociateRepository extends  JpaRepository<Associate, Long>, JpaSpecificationExecutor<Associate> {
 
         @Override
         Page<Associate> findAll(Specification<Associate> specification, Pageable pageable);
+         Optional<Associate> findByUuid(String uuid);
+
 
     }

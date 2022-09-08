@@ -17,5 +17,4 @@ public interface IProvidersRepository extends JpaRepository<Provider, Long>, Jpa
 
     Optional<Provider> findByUuid(String uuid);
 
-
 }

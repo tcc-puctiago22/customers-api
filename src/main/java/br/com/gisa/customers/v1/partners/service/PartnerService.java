@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.partners.service;
 
+import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.commons.exceptions.ExceptionCodes;
 import br.com.gisa.customers.v1.commons.exceptions.ResponseCodeException;
 import br.com.gisa.customers.v1.commons.helper.Helper;
@@ -69,5 +70,12 @@ public class PartnerService {
         iPartnerRepository.saveAndFlush(partner);
 
         return helper.converterPartnerToDTO(partner);
+    }
+
+    public PartnerDTO findByUuid(String uuid) {
+        Partner entity = iPartnerRepository.
+                findByUuid(uuid)
+                .orElseThrow(() -> new ResponseCodeException(ExceptionCodes.PARTNER_NOT_FOUND));
+        return helper.converterPartnerToDTO(entity);
     }
 }

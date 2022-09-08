@@ -48,6 +48,12 @@ public class ProvidersController {
         ProviderDTO response = providersService.postProvider(request);
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
+    @GetMapping("/{uuid}")
+    public ResponseEntity<ProviderDTO> getProvider(@PathVariable("uuid") String uuid) {
+        log.info("GET api/v1/providers/{uuid}:: {}", uuid);
+        ProviderDTO response = providersService.findByUuid(uuid);
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
 
     @GetMapping("/occupational")
     @ResponseStatus(HttpStatus.OK)

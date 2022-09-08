@@ -4,6 +4,8 @@ import br.com.gisa.customers.v1.associates.dto.post.AssociateDTO;
 import br.com.gisa.customers.v1.associates.dto.post.PostAssociateDTO;
 import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.associates.repository.IAssociateRepository;
+import br.com.gisa.customers.v1.commons.exceptions.ExceptionCodes;
+import br.com.gisa.customers.v1.commons.exceptions.ResponseCodeException;
 import br.com.gisa.customers.v1.commons.helper.Helper;
 import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
 import br.com.gisa.customers.v1.providers.dto.post.PostProviderDTO;
@@ -32,4 +34,10 @@ public class AssociateService {
         return helper.converterAssociateToDTO(entity);
     }
 
+    public AssociateDTO findByUuid(String uuid) {
+        Associate entity = iAssociateRepository.
+                findByUuid(uuid)
+                .orElseThrow(() -> new ResponseCodeException(ExceptionCodes.PROVIDER_NOT_FOUND));
+        return helper.converterAssociateToDTO(entity);
+    }
 }

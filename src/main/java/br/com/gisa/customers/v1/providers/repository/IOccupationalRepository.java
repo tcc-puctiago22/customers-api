@@ -14,6 +14,6 @@ public interface IOccupationalRepository extends JpaRepository<Occupational, Lon
     @Override
     Page<Occupational> findAll(Specification<Occupational> specification, Pageable pageable);
 
-    Optional<Occupational> findByuuid(String uuid);
+    Optional<Occupational> findByUuid(String uuid);
 
 }

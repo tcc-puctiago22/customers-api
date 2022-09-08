@@ -59,7 +59,7 @@ public class ProvidersService {
     private Occupational getOccupational(String uuid) {
 
         return  iOccupationalRepository.
-                findByuuid(uuid)
+                findByUuid(uuid)
                 .orElseThrow(() -> new ResponseCodeException(ExceptionCodes.OCCUPATION_NOT_FOUND));
     }
 
@@ -71,5 +71,12 @@ public class ProvidersService {
 
     private ProviderDTO converterProviderToDTO(Provider request){
         return helper.converterProviderToDTO(request);
+    }
+
+    public ProviderDTO findByUuid(String uuid) {
+       Provider provider = providersRepository.
+                 findByUuid(uuid)
+                .orElseThrow(() -> new ResponseCodeException(ExceptionCodes.PROVIDER_NOT_FOUND));
+       return converterProviderToDTO(provider);
     }
 }

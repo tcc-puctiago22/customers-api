@@ -1,5 +1,6 @@
 package br.com.gisa.customers.v1.partners.web;
 
+import br.com.gisa.customers.v1.associates.dto.post.AssociateDTO;
 import br.com.gisa.customers.v1.partners.dto.post.PartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.post.PostPartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.put.PutPatnerDTO;
@@ -37,6 +38,13 @@ public class PartnersController {
         request.setUuid(uuid);
         PartnerDTO response = partnerService.putPartnerProviders(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{uuid}")
+    public ResponseEntity<PartnerDTO> getPartner(@PathVariable("uuid") String uuid) {
+        log.info("GET api/v1/associetes/{uuid}:: {}", uuid);
+        PartnerDTO response = partnerService.findByUuid(uuid);
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
 }

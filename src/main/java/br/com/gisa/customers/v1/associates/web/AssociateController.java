@@ -13,10 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -34,8 +31,15 @@ public class AssociateController {
     @PostMapping
     @ApiPostAssocieateDefinition
     public ResponseEntity<AssociateDTO> post(@RequestBody @Valid PostAssociateDTO request) {
-        log.info("POST api/v1/providers:: {}", request);
+        log.info("POST api/v1/associetes:: {}", request);
         AssociateDTO response = associateService.postAssociate(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{uuid}")
+    public ResponseEntity<AssociateDTO> getProvider(@PathVariable("uuid") String uuid) {
+        log.info("GET api/v1/associetes/{uuid}:: {}", uuid);
+        AssociateDTO response = associateService.findByUuid(uuid);
+        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 }
