@@ -11,7 +11,7 @@ services:
       - mysql_db
     command: sh -c './wait-for mysql_db:3306 -- npm start'
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/siscustomers
+      SPRING_DATASOURCE: mysql_db
   mysql_db:
     image: "mysql:8.0"
     restart: always
