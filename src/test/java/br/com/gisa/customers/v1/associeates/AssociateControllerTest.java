@@ -37,10 +37,10 @@ class AssociateControllerTest {
 	private ObjectMapper objectMapper;
 
 	@Test
-	void getAssociateServiceByUuidWhenReturns200() throws Exception {
+	void getAssociateControllerByUuidWhenReturns200() throws Exception {
 
 		AssociateDTO dto = HelperTest.returnGetAssociateDTO();
-		when(associateService.findByUuid(any(String.class)))
+		when(associateService.findByUuid("370efbec-72e2-4490-ac84-9c3bae67bed5"))
 				.thenReturn(dto);
 
 		mockMvc.perform(get("/v1/associetes/370efbec-72e2-4490-ac84-9c3bae67bed5")
@@ -53,7 +53,7 @@ class AssociateControllerTest {
 
 
 	@Test
-	void postAssociateServiceByUuidReturns201() throws Exception {
+	void postAssociateControllerByUuidReturns201() throws Exception {
 		AssociateDTO dto = HelperTest.returnGetAssociateDTO();
 		PostAssociateDTO postAssociateDTO = HelperTest.returnPostAssociateDTO();
 
