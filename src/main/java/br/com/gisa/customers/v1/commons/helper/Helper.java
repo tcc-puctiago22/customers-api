@@ -12,17 +12,13 @@ import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
 import br.com.gisa.customers.v1.providers.dto.get.GetProviderResponse;
 import br.com.gisa.customers.v1.providers.dto.post.PostProviderDTO;
 import br.com.gisa.customers.v1.providers.model.Provider;
-import org.aspectj.apache.bcel.classfile.Code;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.codec.Hints;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 @Component
 public class Helper {

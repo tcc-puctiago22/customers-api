@@ -43,7 +43,7 @@ CREATE TABLE `address` (
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
    `user_at` varchar(50) DEFAULT 'SYSTEM' NOT NULL,
    `status` varchar(10)  DEFAULT 'ACTIVE',
-  `customer_id` bigint(20),
+  `customer_id` bigint(20) NOT NULL,
    PRIMARY KEY (`id`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
 );
@@ -55,7 +55,7 @@ CREATE TABLE `phone` (
   `country` varchar(3) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
   `type` varchar(100) DEFAULT NULL,
-  `customer_id` bigint(20),
+  `customer_id` bigint(20) NOT NULL,
   `create_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `user_at` varchar(50) DEFAULT 'SYSTEM',
@@ -69,7 +69,7 @@ CREATE TABLE `email` (
     `uuid` varchar(36) NOT NULL UNIQUE,
   `email` varchar(255) NOT NULL,
   `type` varchar(100) DEFAULT NULL,
-  `customer_id` bigint(20),
+  `customer_id` bigint(20) NOT NULL,
    `status` varchar(10)  DEFAULT 'ACTIVE',
   `create_at` datetime DEFAULT CURRENT_TIMESTAMP,
   `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

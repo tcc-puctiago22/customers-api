@@ -19,21 +19,21 @@ INSERT INTO `customer`
 
 INSERT INTO `address`
     VALUES
-        (1,'91d248df-119e-4489-b008-4be39f9be76b','06709-150','Avenida São Camilo',1363,NULL,'Granja Viana','BRASIL','SP','Cotia','2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM','ACTIVE',NULL),
-        (2,'5aaf954b-02f2-4646-9a07-e00533a2e670','05317-020','Av. Manuel Bandeira',291,'Bloco A','Vila Leopoldina','BRASIL','SP','São Paulo','2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM','ACTIVE',NULL),
-        (3,'fe0f6577-da40-4b69-b1e6-1654b306d029','06420-130','Av. Henrique Gonçalves Baptista',1907,'Bloco A','Vila Iracema','BRASIL','SP','Barueri','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE',NULL);
+        (1,'91d248df-119e-4489-b008-4be39f9be76b','06709-150','Avenida São Camilo',1363,NULL,'Granja Viana','BRASIL','SP','Cotia','2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM','ACTIVE',1),
+        (2,'5aaf954b-02f2-4646-9a07-e00533a2e670','05317-020','Av. Manuel Bandeira',291,'Bloco A','Vila Leopoldina','BRASIL','SP','São Paulo','2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM','ACTIVE',2),
+        (3,'fe0f6577-da40-4b69-b1e6-1654b306d029','06420-130','Av. Henrique Gonçalves Baptista',1907,'Bloco A','Vila Iracema','BRASIL','SP','Barueri','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE',3);
 
 INSERT INTO `email`
     VALUES
-        (1,'0df202c2-217f-4955-a294-dddd69cdb9a1','atendimento@bencamiliana.com.br','COMERCIAL',NULL,'ACTIVE','2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM'),
-        (2,'d995e846-c9f5-409d-98c5-3cf12ec63e01','joaosilva03@gmail.com','PESSOAL',NULL,'ACTIVE','2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM'),
-        (3,'e8e109a3-1df7-4917-a8ec-7cffc03992d9','anaferreira@gmail.com','PESSOAL',NULL,'ACTIVE','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM');
+        (1,'0df202c2-217f-4955-a294-dddd69cdb9a1','atendimento@bencamiliana.com.br','COMERCIAL',1,'ACTIVE','2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM'),
+        (2,'d995e846-c9f5-409d-98c5-3cf12ec63e01','joaosilva03@gmail.com','PESSOAL',2,'ACTIVE','2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM'),
+        (3,'e8e109a3-1df7-4917-a8ec-7cffc03992d9','anaferreira@gmail.com','PESSOAL',3,'ACTIVE','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM');
 
 INSERT INTO `phone`
     VALUES
-        (1,'4434ff64-7604-4643-9ef6-db35b2f56768','11','+55','46176966','COMERCIAL',NULL,'2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM','ACTIVE'),
-        (2,'65548b49-2e01-4da9-860f-4482a59d7109','21','+55','924242524','PESSOAL',NULL,'2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM','ACTIVE'),
-        (3,'f2590f61-2dc1-4479-897c-734589b0473c','21','+55','987762323','PESSOAL',NULL,'2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE');
+        (1,'4434ff64-7604-4643-9ef6-db35b2f56768','11','+55','46176966','COMERCIAL',1,'2022-09-06 20:53:00','2022-09-06 20:53:00','SYSTEM','ACTIVE'),
+        (2,'65548b49-2e01-4da9-860f-4482a59d7109','21','+55','924242524','PESSOAL',2,'2022-09-06 20:54:59','2022-09-06 20:54:59','SYSTEM','ACTIVE'),
+        (3,'f2590f61-2dc1-4479-897c-734589b0473c','21','+55','987762323','PESSOAL',3,'2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE');
 
 INSERT INTO `provider`
     VALUES
