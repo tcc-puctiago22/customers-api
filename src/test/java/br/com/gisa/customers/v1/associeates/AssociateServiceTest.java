@@ -15,10 +15,12 @@ import static org.mockito.Mockito.doNothing;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class)
+@ActiveProfiles("test") // Like this
 public class AssociateServiceTest {
     //https://www.tutorialspoint.com/spring_boot_h2/spring_boot_h2_unit_test_service.htm
 

@@ -31,6 +31,6 @@ public class BasicModel implements Serializable {
     @Column(name = "updated_at")
     private LocalDateTime createdDate;
 
-    @Column(name = "user", nullable = false, length = 50)
+    @Column(name = "user_at", nullable = false, length = 50)
     private String user="SYSTEM";
 }

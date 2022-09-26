@@ -8,6 +8,9 @@ services:
     ports:
       - "8080:8080"
     depends_on:
+      mysql_db:
+        condition: service_healthy
+    links:
       - mysql_db
     command: sh -c './wait-for mysql_db:3306 -- npm start'
     environment:
@@ -15,6 +18,10 @@ services:
   mysql_db:
     image: "mysql:8.0"
     restart: always
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 20s
+      retries: 10
     ports:
       - 3307:3306
     environment:

@@ -1,7 +1,7 @@
-INSERT INTO occupational (code,uuid, type, description, create_at , user)
+INSERT INTO occupational (code,uuid, type, description, create_at , user_at)
 VALUES
  ('MC01','2f04150e-c6b3-4ede-900f-f803a2039456','MEDICO', 'Cardiologia', '2022-08-26 00:00:00', 'tiagobrito'),
- ('MC02','ec019059-83b3-4bce-b812-171e8f7db36b',"MEDICO",'Clinico Geral', '2022-08-26 00:00:00', 'tiagobrito'),
+ ('MC02','ec019059-83b3-4bce-b812-171e8f7db36b','MEDICO','Clinico Geral', '2022-08-26 00:00:00', 'tiagobrito'),
  ('MD03','1f9336be-e17e-48af-a607-9066b16c7492','MEDICO', 'Dermatologia', '2022-08-26 00:00:00', 'tiagobrito'),
  ('ME04','9b715541-967a-4e79-9c10-c1b0d334a6bd','MEDICO', 'Enfermagem', '2022-08-26 00:00:00', 'tiagobrito'),
  ('MP05','38da7543-a8a1-45cc-b1c7-fe6845bdd08e','MEDICO', 'Pediatria', '2022-08-26 00:00:00', 'tiagobrito'),

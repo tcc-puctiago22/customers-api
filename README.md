@@ -4,7 +4,6 @@ required
 - https://docs.docker.com/
 
 docker-compose up -d
-docker-compose up
 
 mvn clean install -DskipTests
 
