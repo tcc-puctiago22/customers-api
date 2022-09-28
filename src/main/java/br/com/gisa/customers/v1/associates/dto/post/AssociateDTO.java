@@ -11,6 +11,7 @@ import java.time.LocalDateTime;
 @Setter
 public class AssociateDTO {
 
+    private String uuid;
     private String registration;
     private String planUuid;
     private String accountUuid;

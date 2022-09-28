@@ -1,6 +1,7 @@
 package br.com.gisa.customers.v1.providers.web;
 
 import br.com.gisa.customers.v1.commons.paginate.PaginationResponse;
+import br.com.gisa.customers.v1.providers.dto.OccupationalDTO;
 import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalRequest;
 import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalResponse;
 import br.com.gisa.customers.v1.providers.dto.get.GetProviderResponse;
@@ -63,6 +64,13 @@ public class ProvidersController {
         Page<GetOccupationalResponse> response = occupationalService.findAll(request);
         return new PaginationResponse<>(response);
     }
+    @GetMapping("/occupational/{uuid}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<OccupationalDTO> getOccupationalByUuid(@PathVariable("uuid") String uuid) {
+        log.info("GET /occupational/{uuid}l:: {}", uuid);
 
+        OccupationalDTO response = occupationalService.findByUuid(uuid);
+        return new ResponseEntity<>(response,HttpStatus.OK);
+    }
 
 }

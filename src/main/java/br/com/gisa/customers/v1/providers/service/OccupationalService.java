@@ -1,5 +1,9 @@
 package br.com.gisa.customers.v1.providers.service;
 
+import br.com.gisa.customers.v1.commons.exceptions.ExceptionCodes;
+import br.com.gisa.customers.v1.commons.exceptions.ResponseCodeException;
+import br.com.gisa.customers.v1.commons.helper.Helper;
+import br.com.gisa.customers.v1.providers.dto.OccupationalDTO;
 import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalRequest;
 import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalResponse;
 import br.com.gisa.customers.v1.providers.dto.get.GetProviderResponse;
@@ -26,7 +30,8 @@ public class OccupationalService {
 
     @Autowired
     private IOccupationalRepository occupationalRepository;
-    private ModelMapper modelMapper = new ModelMapper();
+    @Autowired
+    private Helper helper;
 
     public Page<GetOccupationalResponse> findAll(GetOccupationalRequest request){
 
@@ -38,6 +43,18 @@ public class OccupationalService {
     }
 
     private GetOccupationalResponse convertToDto(Occupational request) {
-        return modelMapper.map(request, GetOccupationalResponse.class);
+
+        return  helper.converterGetOccupationalResponse(request);
+        //return modelMapper.map(request, GetOccupationalResponse.class);
+    }
+
+    public OccupationalDTO findByUuid(String uuid) {
+
+        Occupational occupational = occupationalRepository.
+                findByUuid(uuid)
+                .orElseThrow(() -> new ResponseCodeException(ExceptionCodes.OCCUPATION_NOT_FOUND));
+
+        return helper.converterOccupationalToDTO(occupational);
+
     }
 }

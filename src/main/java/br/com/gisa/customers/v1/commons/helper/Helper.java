@@ -8,9 +8,12 @@ import br.com.gisa.customers.v1.partners.dto.post.PartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.post.PostPartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.put.PutPatnerDTO;
 import br.com.gisa.customers.v1.partners.model.Partner;
+import br.com.gisa.customers.v1.providers.dto.OccupationalDTO;
 import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
+import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalResponse;
 import br.com.gisa.customers.v1.providers.dto.get.GetProviderResponse;
 import br.com.gisa.customers.v1.providers.dto.post.PostProviderDTO;
+import br.com.gisa.customers.v1.providers.model.Occupational;
 import br.com.gisa.customers.v1.providers.model.Provider;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -120,5 +123,14 @@ public class Helper {
     }
     private String generateUUID(){
         return  UUID.randomUUID().toString();
+    }
+
+    public OccupationalDTO converterOccupationalToDTO(Occupational entity) {
+        return modelMapper.map(entity, OccupationalDTO.class);
+
+    }
+
+    public GetOccupationalResponse converterGetOccupationalResponse(Occupational request) {
+        return modelMapper.map(request, GetOccupationalResponse.class);
     }
 }
