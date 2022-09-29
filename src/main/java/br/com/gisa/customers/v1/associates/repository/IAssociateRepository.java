@@ -15,7 +15,7 @@ public interface IAssociateRepository extends  JpaRepository<Associate, Long>, J
 
         @Override
         Page<Associate> findAll(Specification<Associate> specification, Pageable pageable);
-         Optional<Associate> findByUuid(String uuid);
+        Optional<Associate> findByUuid(String uuid);
 
 
     }

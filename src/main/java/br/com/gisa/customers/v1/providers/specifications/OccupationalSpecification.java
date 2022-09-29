@@ -2,7 +2,6 @@ package br.com.gisa.customers.v1.providers.specifications;
 import br.com.gisa.customers.v1.commons.filter.AbstractSpecification;
 import br.com.gisa.customers.v1.providers.dto.get.GetOccupationalRequest;
 import br.com.gisa.customers.v1.providers.model.Occupational;
-import org.springframework.stereotype.Component;
 import javax.persistence.criteria.Predicate;
 
 import javax.persistence.criteria.CriteriaBuilder;

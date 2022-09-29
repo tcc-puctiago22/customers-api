@@ -29,7 +29,7 @@ public class Associate extends BasicModel implements Serializable {
     private String registration;
 
     @Column(name = "plan_uuid", length = 36)
-    private String plan_uuid;
+    private String planUuid;
 
     @Column(name = "account_uuid", nullable = false, length = 36)
     private String accountUuid;

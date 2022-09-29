@@ -2,6 +2,7 @@ package br.com.gisa.customers.v1.commons.helper;
 
 import br.com.gisa.customers.v1.associates.dto.post.AssociateDTO;
 import br.com.gisa.customers.v1.associates.dto.post.PostAssociateDTO;
+import br.com.gisa.customers.v1.associates.dto.post.get.GetAssociateResponse;
 import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.constants.PersonType;
 import br.com.gisa.customers.v1.partners.dto.post.PartnerDTO;
@@ -132,5 +133,10 @@ public class Helper {
 
     public GetOccupationalResponse converterGetOccupationalResponse(Occupational request) {
         return modelMapper.map(request, GetOccupationalResponse.class);
+    }
+
+    public GetAssociateResponse converterGetAssociatelResponse(Associate request) {
+        return modelMapper.map(request, GetAssociateResponse.class);
+
     }
 }

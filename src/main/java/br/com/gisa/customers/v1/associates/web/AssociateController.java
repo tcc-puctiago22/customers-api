@@ -3,14 +3,20 @@ package br.com.gisa.customers.v1.associates.web;
 import br.com.gisa.customers.v1.associates.docs.ApiPostAssocieateDefinition;
 import br.com.gisa.customers.v1.associates.dto.post.AssociateDTO;
 import br.com.gisa.customers.v1.associates.dto.post.PostAssociateDTO;
+import br.com.gisa.customers.v1.associates.dto.post.get.GetAssociateResponse;
+import br.com.gisa.customers.v1.associates.dto.post.get.GetAssocieateRequest;
 import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.associates.service.AssociateService;
+import br.com.gisa.customers.v1.commons.paginate.PaginationResponse;
 import br.com.gisa.customers.v1.providers.dto.ProviderDTO;
+import br.com.gisa.customers.v1.providers.dto.get.GetProviderRequest;
+import br.com.gisa.customers.v1.providers.dto.get.GetProviderResponse;
 import br.com.gisa.customers.v1.providers.dto.post.PostProviderDTO;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -41,5 +47,14 @@ public class AssociateController {
         log.info("GET api/v1/associetes/{uuid}:: {}", uuid);
         AssociateDTO response = associateService.findByUuid(uuid);
         return new ResponseEntity<>(response,HttpStatus.OK);
+    }
+
+    @GetMapping
+    @ResponseStatus(HttpStatus.OK)
+    public PaginationResponse<GetAssociateResponse> getProviders(@Valid GetAssocieateRequest request) {
+        log.info("GET api/v1/providers:: {}", request);
+
+        Page<GetAssociateResponse> response = associateService.findAll(request);
+        return new PaginationResponse<>(response);
     }
 }
