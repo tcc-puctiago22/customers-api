@@ -9,6 +9,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -32,6 +33,9 @@ public class Provider extends BasicModel implements Serializable {
 
     @Column(name = "registration", nullable = false, length = 30)
     private String registration ;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @JoinTable(name="provider_occupational", joinColumns=

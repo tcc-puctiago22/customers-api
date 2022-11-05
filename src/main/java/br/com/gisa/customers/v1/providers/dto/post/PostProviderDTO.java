@@ -5,6 +5,7 @@ import lombok.*;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import java.time.LocalDate;
 import java.util.Set;
 
 @Getter
@@ -14,7 +15,7 @@ public class PostProviderDTO {
 
     @NotNull(message = "Objeto customer é obrigatório!")
     private PostPFCustomerDTO customer;
-
+    private LocalDate birthDate;
     @NotEmpty(message = "listOccupational é obrigatório@")
     private Set<String> listOccupational;
 }

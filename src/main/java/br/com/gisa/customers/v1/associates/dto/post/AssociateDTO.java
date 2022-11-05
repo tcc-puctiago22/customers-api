@@ -5,6 +5,7 @@ import br.com.gisa.customers.v1.dto.CustomerDTO;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Getter
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 public class AssociateDTO {
 
     private String uuid;
+    private LocalDate birthDate;
     private String registration;
     private String planUuid;
     private String accountUuid;

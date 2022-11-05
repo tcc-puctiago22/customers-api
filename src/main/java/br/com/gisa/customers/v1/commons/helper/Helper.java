@@ -45,8 +45,13 @@ public class Helper {
         entity.getCustomer().setPersonType(PersonType.PF.toString());
         entity.getCustomer().setUuid(generateUUID());
         entity.getCustomer().getAddresses().forEach(address -> address.setUuid(generateUUID()));
+        entity.getCustomer().getAddresses().forEach(address -> address.setCustomer(entity.getCustomer()));
         entity.getCustomer().getEmails().forEach(email -> email.setUuid(generateUUID()));
+        entity.getCustomer().getEmails().forEach(email -> email.setCustomer(entity.getCustomer()));
+
         entity.getCustomer().getPhones().forEach(phone -> phone.setUuid(generateUUID()));
+        entity.getCustomer().getPhones().forEach(phone -> phone.setCustomer(entity.getCustomer()));
+
         entity.setUuid(generateUUID());
         entity.setRegistration(getRegistration(SISA));
         entity.getCustomer().setProvider(null);
@@ -76,8 +81,12 @@ public class Helper {
         entity.getCustomer().setUuid(generateUUID());
         entity.getCustomer().setPersonType(PersonType.PJ.toString());
         entity.getCustomer().getAddresses().forEach(address -> address.setUuid(generateUUID()));
+        entity.getCustomer().getAddresses().forEach(address -> address.setCustomer(entity.getCustomer()));
         entity.getCustomer().getEmails().forEach(email -> email.setUuid(generateUUID()));
+        entity.getCustomer().getEmails().forEach(email -> email.setCustomer(entity.getCustomer()));
         entity.getCustomer().getPhones().forEach(phone -> phone.setUuid(generateUUID()));
+        entity.getCustomer().getPhones().forEach(phone -> phone.setCustomer(entity.getCustomer()));
+
         entity.setRegistration(getRegistration(SISA_PJ));
         entity.setUuid(generateUUID());
 
@@ -100,8 +109,12 @@ public class Helper {
         entity.getCustomer().setUuid(generateUUID());
         entity.getCustomer().setPersonType(PersonType.PF.toString());
         entity.getCustomer().getAddresses().forEach(address -> address.setUuid(generateUUID()));
+        entity.getCustomer().getAddresses().forEach(address -> address.setCustomer(entity.getCustomer()));
         entity.getCustomer().getEmails().forEach(email -> email.setUuid(generateUUID()));
+        entity.getCustomer().getEmails().forEach(email -> email.setCustomer(entity.getCustomer()));
         entity.getCustomer().getPhones().forEach(phone -> phone.setUuid(generateUUID()));
+        entity.getCustomer().getPhones().forEach(phone -> phone.setCustomer(entity.getCustomer()));
+
         entity.setUuid(generateUUID());
         entity.setRegistration(getRegistration(SISA_PF));
         entity.getCustomer().setAssociate(null);

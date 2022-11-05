@@ -6,6 +6,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,6 +31,9 @@ public class Associate extends BasicModel implements Serializable {
 
     @Column(name = "plan_uuid", length = 36)
     private String planUuid;
+
+    @Column(name = "birth_date")
+    private LocalDate birthDate;
 
     @Column(name = "account_uuid", nullable = false, length = 36)
     private String accountUuid;

@@ -37,7 +37,6 @@ public class AssociateService {
 
         Associate entity = helper.converterDTOtoAssociate(request);
         iAssociateRepository.save(entity);
-
         return helper.converterAssociateToDTO(entity);
     }
 
