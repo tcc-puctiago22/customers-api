@@ -14,6 +14,7 @@ import br.com.gisa.customers.v1.providers.repository.IProvidersRepository;
 import br.com.gisa.customers.v1.providers.specifications.ProviderSpecification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -34,8 +35,9 @@ public class ProvidersService {
     private ProviderSpecification providerSpecification;
 
     public Page<GetProviderResponse> findAll(GetProviderRequest request){
+        Specification<Provider> specification =  providerSpecification.hasOccupationDescrition(request.getOccupationDescription());
 
-        Page<Provider> list =  providersRepository.findAll(providerSpecification.getFilter(request),request.getPageable());
+        Page<Provider> list =  providersRepository.findAll(specification,request.getPageable());
 
         return list.map(this::convertToDto);
     }

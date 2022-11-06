@@ -5,6 +5,7 @@ import br.com.gisa.customers.v1.associates.dto.post.PostAssociateDTO;
 import br.com.gisa.customers.v1.associates.dto.post.get.GetAssociateResponse;
 import br.com.gisa.customers.v1.associates.model.Associate;
 import br.com.gisa.customers.v1.constants.PersonType;
+import br.com.gisa.customers.v1.partners.dto.GetPartnerResponse;
 import br.com.gisa.customers.v1.partners.dto.post.PartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.post.PostPartnerDTO;
 import br.com.gisa.customers.v1.partners.dto.put.PutPatnerDTO;
@@ -69,6 +70,10 @@ public class Helper {
 
     public GetProviderResponse convertToDto(Provider request) {
         return modelMapper.map(request, GetProviderResponse.class);
+    }
+
+    public GetPartnerResponse convertToDtoGetPartnerResponse(Partner request) {
+        return modelMapper.map(request, GetPartnerResponse.class);
     }
 
 

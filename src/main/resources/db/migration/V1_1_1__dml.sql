@@ -37,7 +37,7 @@ INSERT INTO `phone`
 
 INSERT INTO `provider`
     VALUES
-        (1,'fc63cdcb-229a-476b-bc05-20a9e3062028','SISA1662508665033-8','2000-09-06','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE',3,NULL);
+        (1,'fc63cdcb-229a-476b-bc05-20a9e3062028','SISA1662508665033-8','2000-09-06','2022-09-06 20:57:45','2022-09-06 20:57:45','SYSTEM','ACTIVE',3,1);
 
 
 INSERT INTO `associate`
@@ -51,7 +51,7 @@ INSERT INTO `partner`
 
 INSERT INTO `provider_occupational`
     VALUES
-        (8,1);
+        (1,1);
 INSERT INTO `provider_partner`
     VALUES
         (1,1);

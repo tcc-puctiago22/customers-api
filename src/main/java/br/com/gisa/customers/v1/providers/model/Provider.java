@@ -41,7 +41,7 @@ public class Provider extends BasicModel implements Serializable {
     @JoinTable(name="provider_occupational", joinColumns=
             {@JoinColumn(name="provider_id")}, inverseJoinColumns=
             {@JoinColumn(name="occupational_id")})
-    private Set<Occupational> listOccupational = new HashSet<>();
+    private Set<Occupational> listOccupational;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
