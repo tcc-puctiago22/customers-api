@@ -22,11 +22,11 @@ public  class HelperTest {
 
     public static AssociateDTO returnGetAssociateDTO(){
         AssociateDTO dto = new AssociateDTO();
-        dto.setAccountUuid("3d351808-5a59-4b60-96f9-c48986512070");
+        dto.setAccountUsername("40610790005");
         dto.setCustomer(getCustomerDTO());
         dto.setCreatedDate(LocalDateTime.now());
         dto.setRegistration("SISA_PF1662508498567-6");
-        dto.setPlanUuid("f0234842-a335-4c5e-9808-587e4c7eb6a4");
+        dto.setProposalUuid("f0234842-a335-4c5e-9808-587e4c7eb6a4");
         dto.setUser("system");
 
         return dto;

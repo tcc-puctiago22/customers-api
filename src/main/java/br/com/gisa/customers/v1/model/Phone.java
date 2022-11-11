@@ -44,7 +44,7 @@ public class Phone extends BasicModel implements Serializable {
     @Audited(withModifiedFlag = true)
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
-    private PhoneType type;
+        private PhoneType type;
 
     @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")

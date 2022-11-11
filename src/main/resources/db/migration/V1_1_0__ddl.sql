@@ -30,7 +30,7 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `address` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `uuid` varchar(36) NOT NULL UNIQUE,
+   `uuid` varchar(36) NOT NULL UNIQUE,
   `postcode` varchar(9) NOT NULL,
   `street_name` varchar(255) NOT NULL,
   `street_number` mediumint(6) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `address` (
 
 CREATE TABLE `phone` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `uuid` varchar(36) NOT NULL UNIQUE,
+   `uuid` varchar(36) NOT NULL UNIQUE,
   `ddd` varchar(2) NOT NULL,
   `country` varchar(3) NOT NULL,
   `phone_number` varchar(11) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE `phone` (
 
 CREATE TABLE `email` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-    `uuid` varchar(36) NOT NULL UNIQUE,
+   `uuid` varchar(36) NOT NULL UNIQUE,
   `email` varchar(255) NOT NULL,
   `type` varchar(100) DEFAULT NULL,
   `customer_id` bigint(20) NOT NULL,
@@ -80,7 +80,7 @@ CREATE TABLE `email` (
 
 CREATE TABLE `occupational` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-   `uuid` varchar(36) NOT NULL UNIQUE,
+  `uuid` varchar(36) NOT NULL UNIQUE,
   `type` varchar(10) NOT NULL,
   `description` varchar(200) NOT NULL,
   `code` varchar(50) DEFAULT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `provider` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL,
     `registration` varchar(30),
-     `birth_date` date NOT NULL ,
+    `birth_date` date NOT NULL ,
 	`create_at` datetime DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
    `user_at` varchar(50) DEFAULT 'SYSTEM',
@@ -112,8 +112,8 @@ CREATE TABLE `partner` (
     `fantasy_name` varchar(100) NOT NULL,
     `site` varchar(100),
     `registration` varchar(30)NOT NULL,
- 	  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	  `updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `user_at` varchar(50) DEFAULT 'SYSTEM',
     `status` varchar(10)  DEFAULT 'ACTIVE',
      `customer_id` bigint(20),
@@ -146,13 +146,17 @@ CREATE TABLE `associate` (
     `id`  bigint(20) NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `uuid` varchar(36) NOT NULL UNIQUE,
     `registration` varchar(30) NOT NULL,
-     `plan_uuid` varchar(36),
-     `account_uuid` varchar(36),
+    `plan_uuid` varchar(36),
+    `account_username` varchar(36),
+    `type` varchar(10),
     `birth_date` date NOT NULL ,
 	`create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	`updated_at` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     `user_at` varchar(50) DEFAULT 'SYSTEM',
     `status` varchar(10)  DEFAULT 'ACTIVE',
+    `associate_id` bigint(20),
 	`customer_id` bigint(20),
-   CONSTRAINT `associate_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
+   CONSTRAINT `associate_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
+   CONSTRAINT `associate_ibfk_2` FOREIGN KEY (`associate_id`) REFERENCES  `associate`(`id`)
+
  );

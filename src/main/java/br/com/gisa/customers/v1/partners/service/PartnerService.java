@@ -51,7 +51,7 @@ public class PartnerService {
     }
 
     @Transactional(value = Transactional.TxType.REQUIRES_NEW)
-    public PartnerDTO postPartner(PostPartnerDTO request) {
+    public PartnerDTO post(PostPartnerDTO request) {
 
         Partner partner = helper.converterDTOtoPartner(request);
         partner.getCustomer().setPartner(null);

@@ -38,12 +38,12 @@ public class AssociateController {
     @ApiPostAssocieateDefinition
     public ResponseEntity<AssociateDTO> post(@RequestBody @Valid PostAssociateDTO request) {
         log.info("POST api/v1/associetes:: {}", request);
-        AssociateDTO response = associateService.postAssociate(request);
+        AssociateDTO response = associateService.post(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @GetMapping("/{uuid}")
-    public ResponseEntity<AssociateDTO> getProvider(@PathVariable("uuid") String uuid) {
+    public ResponseEntity<AssociateDTO> findByUuid(@PathVariable("uuid") String uuid) {
         log.info("GET api/v1/associetes/{uuid}:: {}", uuid);
         AssociateDTO response = associateService.findByUuid(uuid);
         return new ResponseEntity<>(response,HttpStatus.OK);
@@ -51,10 +51,24 @@ public class AssociateController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PaginationResponse<GetAssociateResponse> getProviders(@Valid GetAssocieateRequest request) {
+    public PaginationResponse<GetAssociateResponse> findAll(@Valid GetAssocieateRequest request) {
         log.info("GET api/v1/providers:: {}", request);
 
         Page<GetAssociateResponse> response = associateService.findAll(request);
         return new PaginationResponse<>(response);
+    }
+
+    @PutMapping
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Object> put(Object request) {
+
+        return new ResponseEntity<Object>(HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<Object> delete(Object request) {
+
+        return new ResponseEntity<Object>(HttpStatus.OK);
     }
 }

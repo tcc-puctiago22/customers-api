@@ -44,8 +44,8 @@ public class AssociateServiceTest {
 
         PostAssociateDTO postAssociateDTO = HelperTest.returnPostAssociateDTO();
         AssociateDTO associateDTO = HelperTest.returnGetAssociateDTO();
-        given(associateService.postAssociate(postAssociateDTO)).willReturn(associateDTO);
-        AssociateDTO  retorno = associateService.postAssociate(postAssociateDTO);
+        given(associateService.post(postAssociateDTO)).willReturn(associateDTO);
+        AssociateDTO  retorno = associateService.post(postAssociateDTO);
         assertEquals(retorno.getRegistration(),associateDTO.getRegistration() );
 
     }

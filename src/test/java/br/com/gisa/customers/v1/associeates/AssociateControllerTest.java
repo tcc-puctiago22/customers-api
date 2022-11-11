@@ -59,7 +59,7 @@ class AssociateControllerTest {
 		AssociateDTO dto = HelperTest.returnGetAssociateDTO();
 		PostAssociateDTO postAssociateDTO = HelperTest.returnPostAssociateDTO();
 
-		when(associateService.postAssociate(any(postAssociateDTO.getClass()))).thenReturn(HelperTest.returnGetAssociateDTO());
+		when(associateService.post(any(postAssociateDTO.getClass()))).thenReturn(HelperTest.returnGetAssociateDTO());
 
 		mockMvc.perform(post("/v1/associetes")
 				.contentType(MediaType.APPLICATION_JSON)

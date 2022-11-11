@@ -43,7 +43,7 @@ public class ProvidersService {
     }
 
     @Transactional(value = Transactional.TxType.REQUIRES_NEW)
-    public ProviderDTO postProvider(PostProviderDTO request) {
+    public ProviderDTO post(PostProviderDTO request) {
 
         Provider provider = helper.converterDTOtoProvider(request);
         Set<Occupational> listOccupational = new HashSet<>();

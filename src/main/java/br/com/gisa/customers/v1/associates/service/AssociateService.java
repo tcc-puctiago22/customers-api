@@ -33,7 +33,7 @@ public class AssociateService {
     private Helper helper;
 
     @Transactional(value = Transactional.TxType.REQUIRES_NEW)
-    public AssociateDTO postAssociate(PostAssociateDTO request) {
+    public AssociateDTO post(PostAssociateDTO request) {
 
         Associate entity = helper.converterDTOtoAssociate(request);
         iAssociateRepository.save(entity);
@@ -58,8 +58,6 @@ public class AssociateService {
     }
 
     private GetAssociateResponse convertToDto(Associate request) {
-
         return  helper.converterGetAssociatelResponse(request);
-        //return modelMapper.map(request, GetOccupationalResponse.class);
     }
 }

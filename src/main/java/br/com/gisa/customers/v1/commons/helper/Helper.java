@@ -108,7 +108,7 @@ public class Helper {
     }
 
 
-    public Associate converterDTOtoAssociate(PostAssociateDTO request) {
+        public Associate converterDTOtoAssociate(PostAssociateDTO request) {
         Associate entity =  modelMapper.map(request, Associate.class);
 
         entity.getCustomer().setUuid(generateUUID());

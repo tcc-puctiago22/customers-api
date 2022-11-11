@@ -28,8 +28,8 @@ public class GetAssocieateRequest extends BasicFilter {
     @FilterAttribute(name = "registration")
     private String registration;
 
-    @FilterAttribute(name = "accountUuid")
-    private String accountUuid;
+    @FilterAttribute(name = "accountUsername")
+    private String accountUsername;
 
     @FilterAttribute(name = "createdDate", operator = Operator.DATE_TIME_GE)
     private LocalDateTime createdDate;

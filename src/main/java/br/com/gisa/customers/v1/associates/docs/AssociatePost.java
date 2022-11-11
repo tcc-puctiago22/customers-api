@@ -23,7 +23,7 @@ public class AssociatePost {
     public static class Response {
         private String registration;
         private String planUuid;
-        private String accountUuid;
+        private String accountUsername;
         private CustomerResponse customer;
         private String status;
         @Schema(example = "2022-06-01")

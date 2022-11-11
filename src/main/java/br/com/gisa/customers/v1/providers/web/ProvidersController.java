@@ -36,7 +36,7 @@ public class ProvidersController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PaginationResponse<GetProviderResponse> getProviders(@Valid GetProviderRequest request) {
+    public PaginationResponse<GetProviderResponse> findAll(@Valid GetProviderRequest request) {
         log.info("GET api/v1/providers:: {}", request);
 
         Page<GetProviderResponse> response = providersService.findAll(request);
@@ -44,13 +44,13 @@ public class ProvidersController {
     }
 
     @PostMapping
-    public ResponseEntity<ProviderDTO> postProviders(@RequestBody @Valid PostProviderDTO request) {
+    public ResponseEntity<ProviderDTO> post(@RequestBody @Valid PostProviderDTO request) {
         log.info("POST api/v1/providers:: {}", request);
-        ProviderDTO response = providersService.postProvider(request);
+        ProviderDTO response = providersService.post(request);
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
     @GetMapping("/{uuid}")
-    public ResponseEntity<ProviderDTO> getProvider(@PathVariable("uuid") String uuid) {
+    public ResponseEntity<ProviderDTO> findByUuid(@PathVariable("uuid") String uuid) {
         log.info("GET api/v1/providers/{uuid}:: {}", uuid);
         ProviderDTO response = providersService.findByUuid(uuid);
         return new ResponseEntity<>(response,HttpStatus.OK);

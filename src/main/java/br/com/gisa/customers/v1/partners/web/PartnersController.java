@@ -35,17 +35,15 @@ public class PartnersController {
     @Autowired
     private PartnerService partnerService;
 
-
-
     @PostMapping
-    public ResponseEntity<PartnerDTO> postPartner(@RequestBody @Valid PostPartnerDTO request) {
+    public ResponseEntity<PartnerDTO> post(@RequestBody @Valid PostPartnerDTO request) {
         log.info("POST /v1/partner:: {}", request);
-        PartnerDTO response = partnerService.postPartner(request);
+        PartnerDTO response = partnerService.post(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("{uuid}/providers")
-    public ResponseEntity<PartnerDTO> putPartner(@PathVariable String uuid, @RequestBody @Valid PutPatnerDTO request) {
+    public ResponseEntity<PartnerDTO> putPartnerProviders(@PathVariable String uuid, @RequestBody @Valid PutPatnerDTO request) {
         log.info("PUT /v1/partner/uuid}/providers:: {}", request);
         request.setUuid(uuid);
         PartnerDTO response = partnerService.putPartnerProviders(request);
@@ -53,7 +51,7 @@ public class PartnersController {
     }
 
     @GetMapping("/{uuid}")
-    public ResponseEntity<PartnerDTO> getPartner(@PathVariable("uuid") String uuid) {
+    public ResponseEntity<PartnerDTO> findByUuid(@PathVariable("uuid") String uuid) {
         log.info("GET api/v1/associetes/{uuid}:: {}", uuid);
         PartnerDTO response = partnerService.findByUuid(uuid);
         return new ResponseEntity<>(response,HttpStatus.OK);
@@ -61,7 +59,7 @@ public class PartnersController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public PaginationResponse<GetPartnerResponse> getPartners(@Valid GetPartnerRequest request) {
+    public PaginationResponse<GetPartnerResponse> findAll(@Valid GetPartnerRequest request) {
         log.info("GET api/v1/getPartners/{uuid}:: {}", request);
         Page<GetPartnerResponse> response = partnerService.findAll(request);
         return new PaginationResponse<>(response);
